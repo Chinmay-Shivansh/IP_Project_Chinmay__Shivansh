@@ -27,7 +27,7 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtuname = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
@@ -42,8 +42,8 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setText("ENTER YOUR LOGIN CREDENTIALS");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(160, 190, 190, 30);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(300, 220, 110, 20);
+        getContentPane().add(txtuname);
+        txtuname.setBounds(300, 220, 110, 20);
 
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +71,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String s = txtuname.getText();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -115,7 +116,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtuname;
     // End of variables declaration//GEN-END:variables
 
 }
