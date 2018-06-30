@@ -46,6 +46,11 @@ public class Login extends javax.swing.JFrame {
         jTextField1.setBounds(300, 220, 110, 20);
 
         jButton1.setText("Login");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(150, 340, 60, 23);
         getContentPane().add(jPasswordField1);
@@ -58,13 +63,23 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setText("Username");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(220, 220, 60, 20);
-
-        jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 570, 440);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            
+        }
+        catch(Exception e)
+        {
+            
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
