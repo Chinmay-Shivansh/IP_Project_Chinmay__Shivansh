@@ -41,9 +41,9 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(204, 0, 204));
         jLabel4.setText("ENTER YOUR LOGIN CREDENTIALS");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(160, 190, 190, 30);
+        jLabel4.setBounds(130, 60, 190, 30);
         getContentPane().add(txtuname);
-        txtuname.setBounds(300, 220, 110, 20);
+        txtuname.setBounds(300, 90, 110, 20);
 
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -52,17 +52,17 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(150, 340, 60, 23);
+        jButton1.setBounds(150, 220, 60, 23);
         getContentPane().add(upwd);
-        upwd.setBounds(300, 260, 110, 20);
+        upwd.setBounds(300, 150, 110, 20);
 
         jLabel3.setText("Password");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(220, 260, 60, 20);
+        jLabel3.setBounds(220, 150, 60, 20);
 
         jLabel1.setText("Username");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(220, 220, 60, 20);
+        jLabel1.setBounds(220, 100, 60, 20);
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 570, 440);
 
