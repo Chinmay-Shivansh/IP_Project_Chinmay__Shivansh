@@ -26,7 +26,6 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel4 = new javax.swing.JLabel();
         txtuname = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         upwd = new javax.swing.JPasswordField();
@@ -36,15 +35,11 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
-
-        jLabel4.setFont(new java.awt.Font("Raavi", 1, 11)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 0, 204));
-        jLabel4.setText("ENTER YOUR LOGIN CREDENTIALS");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(130, 60, 190, 30);
         getContentPane().add(txtuname);
-        txtuname.setBounds(300, 90, 110, 20);
+        txtuname.setBounds(390, 70, 110, 20);
 
+        jButton1.setBackground(new java.awt.Color(0, 255, 255));
+        jButton1.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,19 +47,25 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(150, 220, 60, 23);
+        jButton1.setBounds(340, 180, 80, 23);
         getContentPane().add(upwd);
-        upwd.setBounds(300, 150, 110, 20);
+        upwd.setBounds(390, 120, 110, 20);
 
+        jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 204, 0));
         jLabel3.setText("Password");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(220, 150, 60, 20);
+        jLabel3.setBounds(290, 120, 60, 20);
 
+        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei Light", 1, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 0));
         jLabel1.setText("Username");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(220, 100, 60, 20);
+        jLabel1.setBounds(290, 70, 60, 20);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ip__project/pexels-photo-370984.jpeg"))); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 570, 440);
+        jLabel2.setBounds(0, 0, 560, 360);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -123,7 +124,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField txtuname;
     private javax.swing.JPasswordField upwd;
     // End of variables declaration//GEN-END:variables
