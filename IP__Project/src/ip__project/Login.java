@@ -72,16 +72,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String uname = txtuname.getText();
-        String password = new String (upwd.getPassword());        
-        try
-        {
-            
-        }
-        catch(Exception e)
-        {
-            
-        }
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

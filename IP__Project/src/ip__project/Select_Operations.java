@@ -53,7 +53,7 @@ public class Select_Operations extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ip__project/background.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 520, 330);
+        jLabel1.setBounds(0, 0, 520, 320);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
