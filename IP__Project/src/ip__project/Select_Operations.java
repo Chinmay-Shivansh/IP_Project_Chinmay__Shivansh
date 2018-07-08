@@ -27,33 +27,44 @@ public class Select_Operations extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnBilling = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
+        btnFeedback = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(java.awt.SystemColor.activeCaptionText);
-        jButton1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
-        jButton1.setText("Menu");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(249, 90, 90, 25);
+        btnBilling.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        btnBilling.setForeground(new java.awt.Color(255, 255, 255));
+        btnBilling.setText("Billing");
+        btnBilling.setBorder(null);
+        btnBilling.setBorderPainted(false);
+        btnBilling.setContentAreaFilled(false);
+        btnBilling.setOpaque(false);
+        getContentPane().add(btnBilling, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 90, -1));
 
-        jButton2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
-        jButton2.setText("Billing");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(390, 90, 90, 25);
+        btnMenu.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        btnMenu.setForeground(new java.awt.Color(255, 255, 255));
+        btnMenu.setText("Menu");
+        btnMenu.setBorder(null);
+        btnMenu.setBorderPainted(false);
+        btnMenu.setContentAreaFilled(false);
+        btnMenu.setOpaque(false);
+        getContentPane().add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 90, -1));
 
-        jButton3.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
-        jButton3.setText("Feedback");
-        getContentPane().add(jButton3);
-        jButton3.setBounds(320, 170, 100, 23);
+        btnFeedback.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        btnFeedback.setForeground(new java.awt.Color(255, 255, 255));
+        btnFeedback.setText("Feedback");
+        btnFeedback.setBorder(null);
+        btnFeedback.setBorderPainted(false);
+        btnFeedback.setContentAreaFilled(false);
+        btnFeedback.setOpaque(false);
+        getContentPane().add(btnFeedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 90, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ip__project/background.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 520, 320);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -9, 700, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -94,9 +105,9 @@ public class Select_Operations extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnBilling;
+    private javax.swing.JButton btnFeedback;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
