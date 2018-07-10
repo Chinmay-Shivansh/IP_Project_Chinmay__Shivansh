@@ -40,7 +40,7 @@ public class Login extends javax.swing.JFrame {
         setResizable(false);
 
         btnLogin.setBackground(new java.awt.Color(0, 255, 255));
-        btnLogin.setFont(new java.awt.Font("Segoe UI Light", 1, 11)); // NOI18N
+        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
         btnLogin.setBorder(null);
@@ -53,12 +53,12 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 1, 11)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 204, 0));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 255, 102));
         jLabel3.setText("Password");
 
-        jLabel1.setFont(new java.awt.Font("Microsoft JhengHei Light", 1, 11)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 0));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 255, 102));
         jLabel1.setText("Username");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ip__project/pexels-photo-370984.jpeg"))); // NOI18N
@@ -102,9 +102,7 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addComponent(upwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel2)))
+                    .addComponent(jLabel2))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

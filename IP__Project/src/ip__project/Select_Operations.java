@@ -36,7 +36,7 @@ public class Select_Operations extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBilling.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        btnBilling.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBilling.setForeground(new java.awt.Color(255, 255, 255));
         btnBilling.setText("Billing");
         btnBilling.setBorder(null);
@@ -45,7 +45,7 @@ public class Select_Operations extends javax.swing.JFrame {
         btnBilling.setOpaque(false);
         getContentPane().add(btnBilling, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 90, -1));
 
-        btnMenu.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        btnMenu.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnMenu.setForeground(new java.awt.Color(255, 255, 255));
         btnMenu.setText("Menu");
         btnMenu.setBorder(null);
@@ -54,14 +54,14 @@ public class Select_Operations extends javax.swing.JFrame {
         btnMenu.setOpaque(false);
         getContentPane().add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 90, -1));
 
-        btnFeedback.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        btnFeedback.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnFeedback.setForeground(new java.awt.Color(255, 255, 255));
         btnFeedback.setText("Feedback");
         btnFeedback.setBorder(null);
         btnFeedback.setBorderPainted(false);
         btnFeedback.setContentAreaFilled(false);
         btnFeedback.setOpaque(false);
-        getContentPane().add(btnFeedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 90, -1));
+        getContentPane().add(btnFeedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 90, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ip__project/background.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -9, 700, 490));
