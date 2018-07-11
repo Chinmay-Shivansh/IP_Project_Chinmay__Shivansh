@@ -30,41 +30,43 @@ public class Select_Operations extends javax.swing.JFrame {
         btnBilling = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
         btnFeedback = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         btnBilling.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnBilling.setForeground(new java.awt.Color(255, 255, 255));
         btnBilling.setText("Billing");
         btnBilling.setBorder(null);
         btnBilling.setBorderPainted(false);
         btnBilling.setContentAreaFilled(false);
         btnBilling.setOpaque(false);
-        getContentPane().add(btnBilling, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 90, -1));
+        getContentPane().add(btnBilling);
+        btnBilling.setBounds(480, 113, 100, 30);
 
         btnMenu.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnMenu.setForeground(new java.awt.Color(255, 255, 255));
         btnMenu.setText("Menu");
         btnMenu.setBorder(null);
         btnMenu.setBorderPainted(false);
         btnMenu.setContentAreaFilled(false);
         btnMenu.setOpaque(false);
-        getContentPane().add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 90, -1));
+        getContentPane().add(btnMenu);
+        btnMenu.setBounds(330, 113, 100, 30);
 
         btnFeedback.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnFeedback.setForeground(new java.awt.Color(255, 255, 255));
         btnFeedback.setText("Feedback");
         btnFeedback.setBorder(null);
         btnFeedback.setBorderPainted(false);
         btnFeedback.setContentAreaFilled(false);
         btnFeedback.setOpaque(false);
-        getContentPane().add(btnFeedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 90, -1));
+        getContentPane().add(btnFeedback);
+        btnFeedback.setBounds(390, 200, 130, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ip__project/background.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -9, 700, 490));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ip__project/Select operations screen/background.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 640, 370);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -108,6 +110,6 @@ public class Select_Operations extends javax.swing.JFrame {
     private javax.swing.JButton btnBilling;
     private javax.swing.JButton btnFeedback;
     private javax.swing.JButton btnMenu;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
