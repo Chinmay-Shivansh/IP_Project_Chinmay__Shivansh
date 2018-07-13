@@ -86,7 +86,7 @@ public class Billing extends javax.swing.JFrame {
 
         jButton4.setText("Remove Item");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("yy.jpg")));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("Billing_background.jpg")));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -113,7 +113,6 @@ public class Menu extends javax.swing.JFrame {
         jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
-        jButton5.setOpaque(false);
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
 
         jButton6.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
@@ -142,7 +141,7 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 110, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("Wooden-background.jpg")));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("Menu_background.jpg")));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 375));
 
         pack();

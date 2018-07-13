@@ -61,7 +61,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(102, 255, 102));
         jLabel1.setText("Username");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("pexels-photo-370984.jpeg")));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("Login_background.jpeg")));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
