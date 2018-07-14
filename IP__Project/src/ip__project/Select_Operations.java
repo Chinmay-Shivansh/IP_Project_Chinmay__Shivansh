@@ -42,6 +42,11 @@ public class Select_Operations extends javax.swing.JFrame {
         btnBilling.setBorderPainted(false);
         btnBilling.setContentAreaFilled(false);
         btnBilling.setOpaque(false);
+        btnBilling.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBillingActionPerformed(evt);
+            }
+        });
 
         btnMenu.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnMenu.setForeground(new java.awt.Color(255, 255, 255));
@@ -50,6 +55,11 @@ public class Select_Operations extends javax.swing.JFrame {
         btnMenu.setBorderPainted(false);
         btnMenu.setContentAreaFilled(false);
         btnMenu.setOpaque(false);
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
 
         btnFeedback.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnFeedback.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,6 +101,18 @@ public class Select_Operations extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        // TODO add your handling code here:
+        new Menu().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBillingActionPerformed
+        // TODO add your handling code here:
+        new Billing().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBillingActionPerformed
 
     /**
      * @param args the command line arguments

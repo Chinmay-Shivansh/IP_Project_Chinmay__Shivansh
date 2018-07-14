@@ -1,7 +1,7 @@
 package ip__project;
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.sql.*;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -107,7 +107,47 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
+      String Username = txtuname.getText();
+      String Password = new String(upwd.getPassword());
+      boolean exist = false;
+      try
+      {
+          Class.forName("java.sql.Driver");
+          Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project","root","123456");
+          Statement stmt = con.createStatement();
+          String check_query = "SELECT Username, Password FROM login_credentials";
+          try (ResultSet results = stmt.executeQuery(check_query))
+          {
+              while (results.next()) 
+              {
+                  String un = results.getString("Username");
+                  String pwd =  results.getString("Password");
+                  
+                  if ((Username.equals(un)) && (Password.equals(pwd)))
+                  {
+                      exist = true;
+                  }
+                  
+              } 
+              
+          }
+          
+          if(!exist)
+          {
+           JOptionPane.showMessageDialog(null, "Please Check Username and Password ");
+          }
+          
+          if(exist)
+          {
+              new Select_Operations().setVisible(true);
+              this.setVisible(false);
+          }
+      }
       
+      catch(HeadlessException | ClassNotFoundException | SQLException e)
+      {
+          JOptionPane.showMessageDialog(null, e);
+      }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
