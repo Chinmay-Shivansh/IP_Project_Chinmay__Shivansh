@@ -9,7 +9,7 @@ Adding ImageIcons to components:
 
 2) Click the three dots near icon and select custom code.  
 
-3) Enter this in custom code:  
+3) Enter this in custom code: 
 
     new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/<image-name-with-extension>")) 
     
