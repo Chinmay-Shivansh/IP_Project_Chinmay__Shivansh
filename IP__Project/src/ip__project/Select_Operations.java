@@ -59,7 +59,7 @@ public class Select_Operations extends javax.swing.JFrame {
         btnFeedback.setContentAreaFilled(false);
         btnFeedback.setOpaque(false);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("SelectOperations_background.jpg")));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/SelectOperations_background.jpg")));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
