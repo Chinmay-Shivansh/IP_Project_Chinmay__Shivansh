@@ -5,7 +5,7 @@ None of your business, this is a school project. Keep out
 # Internal
 Adding ImageIcons to components:  
 
-> Open properties of componenet (right-click).  
+> Open properties of component (right-click).  
 
 > Click the three dots near icon and select custom code.  
 
