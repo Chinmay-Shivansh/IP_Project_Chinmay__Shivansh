@@ -20,4 +20,4 @@ Adding ImageIcons to components:
     new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/Billing_background.jpg"))  
     
    
-:D
+> Right click on project and click <b>Build</b>
