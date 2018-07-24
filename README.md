@@ -1,8 +1,8 @@
-## IP Project
+# IP Project
 
  This is a school project.
 
-# Internal
+## Internal
 Adding <u><b>ImageIcons</b></u> to components:  
 
   * Add image to <b>Resources</b> package.  
