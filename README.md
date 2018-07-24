@@ -1,4 +1,4 @@
-## IP_Project_Chinmay__Shivansh
+## IP Project
 
 This is a school project.
 
