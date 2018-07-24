@@ -13,11 +13,11 @@ Adding ImageIcons to components:
 
   * Enter this in custom code:  
 
-    new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/<image-name-with-extension>")) 
+        new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/<image-name-with-extension>")) 
     
- For example 
+     For example 
  
-    new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/Billing_background.jpg"))  
+        new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/Billing_background.jpg"))  
     
    
   * Right click on project and click <b>Build</b>
