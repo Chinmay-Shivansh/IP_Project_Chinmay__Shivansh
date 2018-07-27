@@ -35,7 +35,7 @@ public class Select_Operations extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        btnBilling.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBilling.setFont(new java.awt.Font("Google Sans Medium", 1, 18)); // NOI18N
         btnBilling.setForeground(new java.awt.Color(255, 255, 255));
         btnBilling.setText("Billing");
         btnBilling.setBorder(null);
@@ -48,7 +48,7 @@ public class Select_Operations extends javax.swing.JFrame {
             }
         });
 
-        btnMenu.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnMenu.setFont(new java.awt.Font("Google Sans Medium", 1, 18)); // NOI18N
         btnMenu.setForeground(new java.awt.Color(255, 255, 255));
         btnMenu.setText("Menu");
         btnMenu.setBorder(null);
@@ -61,7 +61,7 @@ public class Select_Operations extends javax.swing.JFrame {
             }
         });
 
-        btnFeedback.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFeedback.setFont(new java.awt.Font("Google Sans Medium", 1, 18)); // NOI18N
         btnFeedback.setForeground(new java.awt.Color(255, 255, 255));
         btnFeedback.setText("Feedback");
         btnFeedback.setBorder(null);
