@@ -1,23 +1,23 @@
-## IP_Project_Chinmay__Shivansh
+# IP Project
 
-This is a school project.
+ This is a school project.
 
-# Internal
-Adding ImageIcons to components:  
+## Internal
+Adding <u><b>ImageIcons</b></u> to components:  
 
-> Add image to Resources package.  
+  * Add image to <b>Resources</b> package.  
 
-> Open properties of component (right-click).  
+  * Open <b>properties</b> of component (right-click).  
 
-> Click the three dots near icon and select custom code.  
+  * Click the <b>three dots</b> near icon and select <b>custom code</b>.  
 
-> Enter this in custom code:  
+  * Enter this in custom code:  
 
-    new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/<image-name-with-extension>")) 
+        new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/<image-name-with-extension>")) 
     
- For example 
+     For example 
  
-    new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/Billing_background.jpg"))  
+        new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/Billing_background.jpg"))  
     
    
-:D
+  * Right click on project and click <b>Build</b>
