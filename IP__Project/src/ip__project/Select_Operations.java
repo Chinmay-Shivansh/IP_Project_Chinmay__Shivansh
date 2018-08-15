@@ -68,6 +68,11 @@ public class Select_Operations extends javax.swing.JFrame {
         btnFeedback.setBorderPainted(false);
         btnFeedback.setContentAreaFilled(false);
         btnFeedback.setOpaque(false);
+        btnFeedback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFeedbackActionPerformed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/SelectOperations_background.jpg")));
 
@@ -105,14 +110,20 @@ public class Select_Operations extends javax.swing.JFrame {
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
         new Menu().setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void btnBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBillingActionPerformed
         // TODO add your handling code here:
         new Billing().setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btnBillingActionPerformed
+
+    private void btnFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFeedbackActionPerformed
+        // TODO add your handling code here:
+        new Feedback().setVisible(true);
+        this.dispose();        
+    }//GEN-LAST:event_btnFeedbackActionPerformed
 
     /**
      * @param args the command line arguments

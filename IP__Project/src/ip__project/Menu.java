@@ -1,5 +1,10 @@
 package ip__project;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import java.sql.*;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -174,14 +179,45 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+                try
+        {
+            Class.forName("java.sql.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+            Statement stmt = con.createStatement();
+            String s="delete from menu where serial_no ="+txtSerialSearch.getText()+";";
+            stmt.executeUpdate(s);
+            JOptionPane.showMessageDialog(null, "Record Deleted");
+            con.close();
+            stmt.close();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+               try
+        {
+            Class.forName("java.sql.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+                    Statement stmt = con.createStatement();
+                    String s = "Insert into menu values('"+txtSerialInsert.getText()+"', '"+txtItem.getText()+"', "+txtPrice.getText()+");";
+                    stmt.executeUpdate(s);
+                    JOptionPane.showMessageDialog(null, "Record saved");
+                    stmt.close();
+                    con.close();
+        } 
+               catch (Exception e)
+               {
+                   JOptionPane.showMessageDialog(null, e);
+               }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
@@ -190,6 +226,24 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        try
+        {
+            Class.forName("java.sql.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+            Statement stmt = con.createStatement();
+            String str="select * from menu where serial_no ="+txtSerialSearch.getText()+";";
+            ResultSet rs=stmt.executeQuery(str);
+            rs.next();
+            int s=rs.getInt("Serial_No");txtSerialInsert.setText(""+s);
+            String i=rs.getString("Item");txtItem.setText(""+i);
+            int p=rs.getInt("Price");txtPrice.setText(""+p);
+            con.close();
+            stmt.close();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
