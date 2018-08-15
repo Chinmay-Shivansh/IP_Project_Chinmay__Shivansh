@@ -108,7 +108,7 @@ public class Login extends javax.swing.JFrame {
           if(exist)
           {
               new Select_Operations().setVisible(true);
-              this.setVisible(false);
+              this.dispose();
           }
       }
       
