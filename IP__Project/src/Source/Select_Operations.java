@@ -30,10 +30,12 @@ public class Select_Operations extends javax.swing.JFrame {
         btnBilling = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
         btnFeedback = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBilling.setFont(new java.awt.Font("Google Sans Medium", 1, 18)); // NOI18N
         btnBilling.setForeground(new java.awt.Color(255, 255, 255));
@@ -47,6 +49,7 @@ public class Select_Operations extends javax.swing.JFrame {
                 btnBillingActionPerformed(evt);
             }
         });
+        getContentPane().add(btnBilling, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 113, 100, 30));
 
         btnMenu.setFont(new java.awt.Font("Google Sans Medium", 1, 18)); // NOI18N
         btnMenu.setForeground(new java.awt.Color(255, 255, 255));
@@ -60,6 +63,7 @@ public class Select_Operations extends javax.swing.JFrame {
                 btnMenuActionPerformed(evt);
             }
         });
+        getContentPane().add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 113, 100, 30));
 
         btnFeedback.setFont(new java.awt.Font("Google Sans Medium", 1, 18)); // NOI18N
         btnFeedback.setForeground(new java.awt.Color(255, 255, 255));
@@ -73,36 +77,21 @@ public class Select_Operations extends javax.swing.JFrame {
                 btnFeedbackActionPerformed(evt);
             }
         });
+        getContentPane().add(btnFeedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 130, 30));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/153875724831046294.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/SelectOperations_background.jpg")));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(330, 330, 330)
-                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(btnBilling, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(390, 390, 390)
-                .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addComponent(btnBilling, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -124,6 +113,12 @@ public class Select_Operations extends javax.swing.JFrame {
         new Feedback().setVisible(true);
         this.dispose();        
     }//GEN-LAST:event_btnFeedbackActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new Login().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,6 +159,7 @@ public class Select_Operations extends javax.swing.JFrame {
     private javax.swing.JButton btnBilling;
     private javax.swing.JButton btnFeedback;
     private javax.swing.JButton btnMenu;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
