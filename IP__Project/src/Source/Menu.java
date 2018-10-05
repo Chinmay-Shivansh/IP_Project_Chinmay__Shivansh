@@ -215,21 +215,7 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-public class JTableUtilities
-{
-  public void setCellsAlignment(JTable table, int alignment)
-    {
-        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
-        rightRenderer.setHorizontalAlignment(alignment);
-
-        TableModel tableModel = table.getModel();
-
-        for (int columnIndex = 0; columnIndex < tableModel.getColumnCount(); columnIndex++)
-        {
-            table.getColumnModel().getColumn(columnIndex).setCellRenderer(rightRenderer);
-        }
-    }   
-}
+    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
                 try
@@ -348,13 +334,13 @@ public class JTableUtilities
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // TODO add your handling code here:
-        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
-        rightRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        // TODO add your handling code here:             
+        DefaultTableCellRenderer centreRenderer = new DefaultTableCellRenderer();
+        centreRenderer.setHorizontalAlignment(SwingConstants.CENTER);
         TableModel tableModel = jTable1.getModel();
         for (int columnIndex = 0; columnIndex < tableModel.getColumnCount(); columnIndex++)
         {
-            jTable1.getColumnModel().getColumn(columnIndex).setCellRenderer(rightRenderer);
+            jTable1.getColumnModel().getColumn(columnIndex).setCellRenderer(centreRenderer);
         }
     }//GEN-LAST:event_formWindowActivated
 

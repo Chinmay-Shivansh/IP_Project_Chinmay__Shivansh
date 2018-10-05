@@ -31,6 +31,7 @@ public class Select_Operations extends javax.swing.JFrame {
         btnMenu = new javax.swing.JButton();
         btnFeedback = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,8 +91,16 @@ public class Select_Operations extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
 
+        jButton2.setFont(new java.awt.Font("Google Sans Medium", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("View Bills");
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, -1, -1));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/SelectOperations_background.jpg")));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 370));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -160,6 +169,7 @@ public class Select_Operations extends javax.swing.JFrame {
     private javax.swing.JButton btnFeedback;
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

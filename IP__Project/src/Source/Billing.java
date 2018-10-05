@@ -5,6 +5,7 @@
  */
 package Source;
 
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -13,7 +14,10 @@ import java.sql.Statement;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -51,6 +55,7 @@ public class Billing extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -107,12 +112,12 @@ public class Billing extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 60, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 60, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
         jButton2.setForeground(java.awt.Color.darkGray);
-        jButton2.setText("Total amount");
+        jButton2.setText("<html><p align='center'>Display total amount<br>and<br>save bill</p></html>");
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
@@ -121,7 +126,7 @@ public class Billing extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 130, 30));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 130, 90));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
@@ -135,7 +140,7 @@ public class Billing extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, -1));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
@@ -149,7 +154,7 @@ public class Billing extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 120, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 120, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/cash.png")) );
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, 62, 62));
@@ -161,7 +166,7 @@ public class Billing extends javax.swing.JFrame {
         jLabel6.setForeground(java.awt.Color.darkGray);
         jLabel6.setText("Item");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 50, -1));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 50, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 50, 20));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/arrowhead-thin-outline-to-the-left (1).png"))); // NOI18N
         jButton5.setBorder(null);
@@ -174,6 +179,11 @@ public class Billing extends javax.swing.JFrame {
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 60, 40));
 
+        jLabel7.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
+        jLabel7.setForeground(java.awt.Color.darkGray);
+        jLabel7.setText("Total:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, -1, 20));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/white.jpg")));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 370));
 
@@ -182,6 +192,13 @@ public class Billing extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
+        DefaultTableCellRenderer centreRenderer = new DefaultTableCellRenderer();
+        centreRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        TableModel tableModel = jTable1.getModel();
+        for (int columnIndex = 0; columnIndex < tableModel.getColumnCount(); columnIndex++)
+        {
+            jTable1.getColumnModel().getColumn(columnIndex).setCellRenderer(centreRenderer);
+        }
     }//GEN-LAST:event_formWindowActivated
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -239,6 +256,30 @@ public class Billing extends javax.swing.JFrame {
             total+=x;
         }
         jLabel3.setText(""+total);
+        try
+        {
+            Class.forName("java.sql.Driver");
+                    Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+                    Statement stmt1 = con1.createStatement();
+                    for(int i=0; i<=mytable2.getRowCount();i++)
+                    {
+                        String serial = mytable2.getValueAt(i, 1).toString();
+                        String item = mytable2.getValueAt(i, 2).toString();
+                        String price = mytable2.getValueAt(i, 3).toString();
+                        String qty = mytable2.getValueAt(i, 4).toString();
+                        String amount = mytable2.getValueAt(i, 1).toString();
+                        String tot = Integer.toString(total);
+                        String s = "Insert into Bills values('"+serial+"', '"+item+"', '"+price+"', '"+qty+"', '"+amount+"', '"+tot+"', NOW());";
+                        stmt1.executeUpdate(s);
+                        JOptionPane.showMessageDialog(null, "Record saved");
+                    }
+                    stmt1.close();
+                    con1.close();
+        } 
+               catch (HeadlessException | ClassNotFoundException | SQLException e)
+               {
+                   JOptionPane.showMessageDialog(null, e);
+               }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -294,6 +335,7 @@ public class Billing extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtItem;
