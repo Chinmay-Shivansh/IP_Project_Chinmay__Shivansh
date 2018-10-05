@@ -5,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.sql.*;
+import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.*;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -48,11 +51,17 @@ public class Menu extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 51));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane1.setFont(new java.awt.Font("Google Sans", 0, 11)); // NOI18N
@@ -168,6 +177,21 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 460, -1, -1));
 
+        jButton1.setFont(new java.awt.Font("Google Sans Medium", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Show menu");
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Google Sans Medium", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/Menu_background.jpg")));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 234, 539));
 
@@ -176,7 +200,21 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public class JTableUtilities
+{
+  public void setCellsAlignment(JTable table, int alignment)
+    {
+        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+        rightRenderer.setHorizontalAlignment(alignment);
 
+        TableModel tableModel = table.getModel();
+
+        for (int columnIndex = 0; columnIndex < tableModel.getColumnCount(); columnIndex++)
+        {
+            table.getColumnModel().getColumn(columnIndex).setCellRenderer(rightRenderer);
+        }
+    }   
+}
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
                 try
@@ -217,7 +255,27 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        
+         try
+        {
+            Class.forName("java.sql.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost/ip_project","root","123456");
+            Statement stmt=con.createStatement();
+            String s="update menu set item='"+txtItem.getText()+"' where serial_no="+txtSerialInsert.getText()+";";
+            stmt.executeUpdate(s);
+            String s1="update menu set Price='"+txtPrice.getText()+"' where serial_no="+txtSerialInsert.getText()+";";
+            stmt.executeUpdate(s1);
+            JOptionPane.showMessageDialog(null,"Record Updated");
+             stmt.close();
+             con.close();
+             txtSerialInsert.setText(" ");
+             txtItem.setText(" ");
+             txtPrice.setText(" ");
+             txtSerialSearch.setText(" ");
+         }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
@@ -245,6 +303,45 @@ public class Menu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel mytable = (DefaultTableModel)jTable1.getModel();
+        mytable.setRowCount(0);
+        try
+        {
+            Class.forName("java.sql.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+            Statement stmt = con.createStatement();
+            String str="select * from menu;";
+            ResultSet rs=stmt.executeQuery(str);
+            while(rs.next())
+            {
+                String i=rs.getString("Item");
+                int s = rs.getInt("Serial_No");
+                int p = rs.getInt("Price");
+                Object [] Row = {s,i,p};
+                mytable.addRow(Row);
+            }
+            con.close();
+            stmt.close();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }                                        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+        rightRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        TableModel tableModel = jTable1.getModel();
+        for (int columnIndex = 0; columnIndex < tableModel.getColumnCount(); columnIndex++)
+        {
+            jTable1.getColumnModel().getColumn(columnIndex).setCellRenderer(rightRenderer);
+        }
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -283,6 +380,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

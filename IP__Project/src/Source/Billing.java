@@ -5,8 +5,15 @@
  */
 package Source;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -33,8 +40,8 @@ public class Billing extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtItem = new javax.swing.JTextField();
+        txtQty = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -84,8 +91,8 @@ public class Billing extends javax.swing.JFrame {
         jLabel2.setForeground(java.awt.Color.darkGray);
         jLabel2.setText("Quantity");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, 60, 20));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 120, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 70, 60, -1));
+        getContentPane().add(txtItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 120, -1));
+        getContentPane().add(txtQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 70, 60, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
@@ -108,6 +115,11 @@ public class Billing extends javax.swing.JFrame {
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 257, 130, 30));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
@@ -117,6 +129,11 @@ public class Billing extends javax.swing.JFrame {
         jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, -1, -1));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
@@ -126,6 +143,11 @@ public class Billing extends javax.swing.JFrame {
         jButton4.setBorder(null);
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 170, 120, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/cash.png")) );
@@ -156,8 +178,56 @@ public class Billing extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String s = "s";
+        DefaultTableModel mytable = (DefaultTableModel)jTable1.getModel();
+         try
+        {
+            Class.forName("java.sql.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+            Statement stmt = con.createStatement();
+            String str="select * from menu where Item = '"+txtItem.getText()+"';";
+            ResultSet rs=stmt.executeQuery(str);
+            while(rs.next())
+            {
+                String i=rs.getString("Item");
+                int s = rs.getInt("Serial_No");
+                int p = rs.getInt("Price");
+                int q = Integer.parseInt(txtQty.getText());
+                int a = p*q;
+                Object [] Row = {s,i,p,q,a};
+                mytable.addRow(Row);
+            }
+            con.close();
+            stmt.close();
+        }
+        catch(ClassNotFoundException | NumberFormatException | SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel mytable = (DefaultTableModel)jTable1.getModel();
+        mytable.removeRow(jTable1.getSelectedRow());
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel mytable1 = (DefaultTableModel)jTable1.getModel();
+        mytable1.setRowCount(0);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel mytable2 = (DefaultTableModel)jTable1.getModel();
+        int total =0;
+        for(int i=0; i<mytable2.getRowCount();i++)
+        {
+            int x = Integer.parseInt(mytable2.getValueAt(i, 5).toString());
+            total+=x;
+        }
+        jLabel3.setText(""+total);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,7 +277,7 @@ public class Billing extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtItem;
+    private javax.swing.JTextField txtQty;
     // End of variables declaration//GEN-END:variables
 }
