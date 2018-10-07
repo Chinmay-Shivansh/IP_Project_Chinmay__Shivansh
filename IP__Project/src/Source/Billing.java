@@ -261,17 +261,12 @@ public class Billing extends javax.swing.JFrame {
             Class.forName("java.sql.Driver");
                     Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
                     Statement stmt1 = con1.createStatement();
-                    for(int i=0; i<=mytable2.getRowCount();i++)
+                    for(int i=0; i<mytable2.getRowCount();i++)
                     {
-                        String serial = mytable2.getValueAt(i, 1).toString();
-                        String item = mytable2.getValueAt(i, 2).toString();
-                        String price = mytable2.getValueAt(i, 3).toString();
-                        String qty = mytable2.getValueAt(i, 4).toString();
-                        String amount = mytable2.getValueAt(i, 1).toString();
                         String tot = Integer.toString(total);
-                        String s = "Insert into Bills values('"+serial+"', '"+item+"', '"+price+"', '"+qty+"', '"+amount+"', '"+tot+"', NOW());";
+                        String s = "Insert into Bills (Amount, Time) values('"+tot+"', NOW());";
                         stmt1.executeUpdate(s);
-                        JOptionPane.showMessageDialog(null, "Record saved");
+                        JOptionPane.showMessageDialog(null, "Bill saved");
                     }
                     stmt1.close();
                     con1.close();
