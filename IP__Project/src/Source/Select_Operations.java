@@ -30,8 +30,8 @@ public class Select_Operations extends javax.swing.JFrame {
         btnBilling = new javax.swing.JButton();
         btnMenu = new javax.swing.JButton();
         btnFeedback = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Back_button = new javax.swing.JButton();
+        btnViewBills = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,24 +80,24 @@ public class Select_Operations extends javax.swing.JFrame {
         });
         getContentPane().add(btnFeedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 130, 30));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/153875724831046294.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/153875724831046294.png"))); // NOI18N
+        Back_button.setBorder(null);
+        Back_button.setBorderPainted(false);
+        Back_button.setContentAreaFilled(false);
+        Back_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                Back_buttonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
+        getContentPane().add(Back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Google Sans Medium", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("View Bills");
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, -1, -1));
+        btnViewBills.setFont(new java.awt.Font("Google Sans Medium", 1, 18)); // NOI18N
+        btnViewBills.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewBills.setText("View Bills");
+        btnViewBills.setBorder(null);
+        btnViewBills.setBorderPainted(false);
+        btnViewBills.setContentAreaFilled(false);
+        getContentPane().add(btnViewBills, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/SelectOperations_background.jpg")));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 380));
@@ -123,11 +123,11 @@ public class Select_Operations extends javax.swing.JFrame {
         this.dispose();        
     }//GEN-LAST:event_btnFeedbackActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
         // TODO add your handling code here:
         new Login().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_Back_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,11 +165,11 @@ public class Select_Operations extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Back_button;
     private javax.swing.JButton btnBilling;
     private javax.swing.JButton btnFeedback;
     private javax.swing.JButton btnMenu;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnViewBills;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

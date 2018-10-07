@@ -31,7 +31,7 @@ public class Login extends javax.swing.JFrame {
 
         txtuname = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
-        upwd = new javax.swing.JPasswordField();
+        pwd_field = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -55,7 +55,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 80, -1));
-        getContentPane().add(upwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 110, -1));
+        getContentPane().add(pwd_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 110, -1));
 
         jLabel3.setFont(new java.awt.Font("Google Sans Medium", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 255, 102));
@@ -76,7 +76,7 @@ public class Login extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
       String Username = txtuname.getText();
-      String Password = new String(upwd.getPassword());
+      String Password = new String(pwd_field.getPassword());
       boolean exist = false;
       try
       {
@@ -158,8 +158,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPasswordField pwd_field;
     private javax.swing.JTextField txtuname;
-    private javax.swing.JPasswordField upwd;
     // End of variables declaration//GEN-END:variables
 
 }

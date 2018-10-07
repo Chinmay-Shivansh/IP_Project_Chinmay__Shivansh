@@ -36,9 +36,9 @@ public class View_Bills extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btn_ViewBills = new javax.swing.JButton();
+        Back_button = new javax.swing.JButton();
+        btn_DeleteBills = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -76,42 +76,42 @@ public class View_Bills extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 280));
 
-        jButton1.setFont(new java.awt.Font("Google Sans Medium", 0, 16)); // NOI18N
-        jButton1.setForeground(java.awt.Color.darkGray);
-        jButton1.setText("View Bills");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_ViewBills.setFont(new java.awt.Font("Google Sans Medium", 0, 16)); // NOI18N
+        btn_ViewBills.setForeground(java.awt.Color.darkGray);
+        btn_ViewBills.setText("View Bills");
+        btn_ViewBills.setBorder(null);
+        btn_ViewBills.setBorderPainted(false);
+        btn_ViewBills.setContentAreaFilled(false);
+        btn_ViewBills.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_ViewBillsActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, -1));
+        getContentPane().add(btn_ViewBills, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/arrowhead-thin-outline-to-the-left (1).png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/arrowhead-thin-outline-to-the-left (1).png"))); // NOI18N
+        Back_button.setBorder(null);
+        Back_button.setBorderPainted(false);
+        Back_button.setContentAreaFilled(false);
+        Back_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                Back_buttonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+        getContentPane().add(Back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
-        jButton3.setFont(new java.awt.Font("Google Sans Medium", 0, 16)); // NOI18N
-        jButton3.setForeground(java.awt.Color.darkGray);
-        jButton3.setText("Delete bills");
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btn_DeleteBills.setFont(new java.awt.Font("Google Sans Medium", 0, 16)); // NOI18N
+        btn_DeleteBills.setForeground(java.awt.Color.darkGray);
+        btn_DeleteBills.setText("Delete bills");
+        btn_DeleteBills.setBorder(null);
+        btn_DeleteBills.setBorderPainted(false);
+        btn_DeleteBills.setContentAreaFilled(false);
+        btn_DeleteBills.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btn_DeleteBillsActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, -1, -1));
+        getContentPane().add(btn_DeleteBills, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/white.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 727, 399));
@@ -119,7 +119,7 @@ public class View_Bills extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_ViewBillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ViewBillsActionPerformed
         // TODO add your handling code here:
         DefaultTableModel mytable = (DefaultTableModel)tbl.getModel();
          try
@@ -144,7 +144,7 @@ public class View_Bills extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null,e);
         }        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_ViewBillsActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
@@ -157,13 +157,13 @@ public class View_Bills extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowActivated
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
         // TODO add your handling code here:
         new Select_Operations().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_Back_buttonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_DeleteBillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DeleteBillsActionPerformed
         // TODO add your handling code here:
         int DialogueResult = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the selected bills?");
         if(DialogueResult == JOptionPane.YES_OPTION)
@@ -185,7 +185,7 @@ public class View_Bills extends javax.swing.JFrame {
             }
         }                                        
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btn_DeleteBillsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,9 +223,9 @@ public class View_Bills extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton Back_button;
+    private javax.swing.JButton btn_DeleteBills;
+    private javax.swing.JButton btn_ViewBills;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbl;

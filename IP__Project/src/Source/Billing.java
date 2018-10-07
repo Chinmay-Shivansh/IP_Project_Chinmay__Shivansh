@@ -42,19 +42,19 @@ public class Billing extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         txtItem = new javax.swing.JTextField();
         txtQty = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnBill = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
+        btnRemove = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        Back_button = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -71,8 +71,8 @@ public class Billing extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setFont(new java.awt.Font("Google Sans", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl.setFont(new java.awt.Font("Google Sans", 0, 12)); // NOI18N
+        tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -88,8 +88,8 @@ public class Billing extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(jTable1);
+        tbl.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(tbl);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 350, 330));
 
@@ -100,61 +100,61 @@ public class Billing extends javax.swing.JFrame {
         getContentPane().add(txtItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 120, -1));
         getContentPane().add(txtQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 70, -1));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
-        jButton1.setForeground(java.awt.Color.darkGray);
-        jButton1.setText("Add");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setBackground(new java.awt.Color(255, 255, 255));
+        btnAdd.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
+        btnAdd.setForeground(java.awt.Color.darkGray);
+        btnAdd.setText("Add");
+        btnAdd.setBorder(null);
+        btnAdd.setBorderPainted(false);
+        btnAdd.setContentAreaFilled(false);
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 60, -1));
+        getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 60, -1));
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
-        jButton2.setForeground(java.awt.Color.darkGray);
-        jButton2.setText("<html><p align='center'>Display total amount<br>and<br>save bill</p></html>");
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnBill.setBackground(new java.awt.Color(255, 255, 255));
+        btnBill.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
+        btnBill.setForeground(java.awt.Color.darkGray);
+        btnBill.setText("<html><p align='center'>Display total amount<br>and<br>save bill</p></html>");
+        btnBill.setBorder(null);
+        btnBill.setBorderPainted(false);
+        btnBill.setContentAreaFilled(false);
+        btnBill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnBillActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 130, 90));
+        getContentPane().add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 130, 90));
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
-        jButton3.setForeground(java.awt.Color.darkGray);
-        jButton3.setText("Clear");
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnClear.setBackground(new java.awt.Color(255, 255, 255));
+        btnClear.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
+        btnClear.setForeground(java.awt.Color.darkGray);
+        btnClear.setText("Clear");
+        btnClear.setBorder(null);
+        btnClear.setBorderPainted(false);
+        btnClear.setContentAreaFilled(false);
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnClearActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, -1));
+        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, -1));
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
-        jButton4.setForeground(java.awt.Color.darkGray);
-        jButton4.setText("Remove Item");
-        jButton4.setBorder(null);
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnRemove.setBackground(new java.awt.Color(255, 255, 255));
+        btnRemove.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
+        btnRemove.setForeground(java.awt.Color.darkGray);
+        btnRemove.setText("Remove Item");
+        btnRemove.setBorder(null);
+        btnRemove.setBorderPainted(false);
+        btnRemove.setContentAreaFilled(false);
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnRemoveActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 120, -1));
+        getContentPane().add(btnRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 120, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/cash.png")) );
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, 62, 62));
@@ -168,16 +168,16 @@ public class Billing extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 50, -1));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 50, 20));
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/arrowhead-thin-outline-to-the-left (1).png"))); // NOI18N
-        jButton5.setBorder(null);
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/arrowhead-thin-outline-to-the-left (1).png"))); // NOI18N
+        Back_button.setBorder(null);
+        Back_button.setBorderPainted(false);
+        Back_button.setContentAreaFilled(false);
+        Back_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                Back_buttonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 60, 40));
+        getContentPane().add(Back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 60, 40));
 
         jLabel7.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
         jLabel7.setForeground(java.awt.Color.darkGray);
@@ -194,10 +194,10 @@ public class Billing extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableCellRenderer centreRenderer = new DefaultTableCellRenderer();
         centreRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-        TableModel tableModel = jTable1.getModel();
+        TableModel tableModel = tbl.getModel();
         for (int columnIndex = 0; columnIndex < tableModel.getColumnCount(); columnIndex++)
         {
-            jTable1.getColumnModel().getColumn(columnIndex).setCellRenderer(centreRenderer);
+            tbl.getColumnModel().getColumn(columnIndex).setCellRenderer(centreRenderer);
         }
     }//GEN-LAST:event_formWindowActivated
 
@@ -205,9 +205,9 @@ public class Billing extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel mytable = (DefaultTableModel)jTable1.getModel();
+        DefaultTableModel mytable = (DefaultTableModel)tbl.getModel();
          try
         {
             Class.forName("java.sql.Driver");
@@ -232,23 +232,23 @@ public class Billing extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null,e);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel mytable = (DefaultTableModel)jTable1.getModel();
-        mytable.removeRow(jTable1.getSelectedRow());
-    }//GEN-LAST:event_jButton4ActionPerformed
+        DefaultTableModel mytable = (DefaultTableModel)tbl.getModel();
+        mytable.removeRow(tbl.getSelectedRow());
+    }//GEN-LAST:event_btnRemoveActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel mytable1 = (DefaultTableModel)jTable1.getModel();
+        DefaultTableModel mytable1 = (DefaultTableModel)tbl.getModel();
         mytable1.setRowCount(0);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnClearActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBillActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel mytable2 = (DefaultTableModel)jTable1.getModel();
+        DefaultTableModel mytable2 = (DefaultTableModel)tbl.getModel();
         int total =0;
         for(int i=0; i<mytable2.getRowCount();i++)
         {
@@ -275,13 +275,13 @@ public class Billing extends javax.swing.JFrame {
                {
                    JOptionPane.showMessageDialog(null, e);
                }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnBillActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
         // TODO add your handling code here:
         new Select_Operations().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_Back_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -319,11 +319,11 @@ public class Billing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton Back_button;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnBill;
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnRemove;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -332,7 +332,7 @@ public class Billing extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbl;
     private javax.swing.JTextField txtItem;
     private javax.swing.JTextField txtQty;
     // End of variables declaration//GEN-END:variables
