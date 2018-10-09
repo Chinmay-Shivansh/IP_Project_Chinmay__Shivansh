@@ -39,6 +39,7 @@ public class View_Bills extends javax.swing.JFrame {
         btn_ViewBills = new javax.swing.JButton();
         Back_button = new javax.swing.JButton();
         btn_DeleteBills = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,7 +75,7 @@ public class View_Bills extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbl);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 280));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 260));
 
         btn_ViewBills.setFont(new java.awt.Font("Google Sans Medium", 0, 16)); // NOI18N
         btn_ViewBills.setForeground(java.awt.Color.darkGray);
@@ -87,7 +88,7 @@ public class View_Bills extends javax.swing.JFrame {
                 btn_ViewBillsActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_ViewBills, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, -1));
+        getContentPane().add(btn_ViewBills, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, -1, -1));
 
         Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Back_black.png"))); // NOI18N
         Back_button.setBorder(null);
@@ -98,7 +99,7 @@ public class View_Bills extends javax.swing.JFrame {
                 Back_buttonActionPerformed(evt);
             }
         });
-        getContentPane().add(Back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+        getContentPane().add(Back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
 
         btn_DeleteBills.setFont(new java.awt.Font("Google Sans Medium", 0, 16)); // NOI18N
         btn_DeleteBills.setForeground(java.awt.Color.darkGray);
@@ -111,7 +112,10 @@ public class View_Bills extends javax.swing.JFrame {
                 btn_DeleteBillsActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_DeleteBills, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, -1, -1));
+        getContentPane().add(btn_DeleteBills, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Billing_background.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 730, 200));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/white.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 727, 399));
@@ -227,6 +231,7 @@ public class View_Bills extends javax.swing.JFrame {
     private javax.swing.JButton btn_DeleteBills;
     private javax.swing.JButton btn_ViewBills;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables

@@ -34,16 +34,17 @@ public class Login extends javax.swing.JFrame {
         pwd_field = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(txtuname, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 110, -1));
+        getContentPane().add(txtuname, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 110, -1));
 
-        btnLogin.setBackground(new java.awt.Color(0, 0, 0));
-        btnLogin.setFont(new java.awt.Font("Google Sans Medium", 1, 12)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setFont(new java.awt.Font("Google Sans", 1, 16)); // NOI18N
+        btnLogin.setForeground(java.awt.Color.darkGray);
         btnLogin.setText("Login");
         btnLogin.setBorder(null);
         btnLogin.setBorderPainted(false);
@@ -54,21 +55,30 @@ public class Login extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 80, -1));
-        getContentPane().add(pwd_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 110, -1));
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 90, -1));
+        getContentPane().add(pwd_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 110, -1));
 
-        jLabel3.setFont(new java.awt.Font("Google Sans Medium", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 255, 102));
+        jLabel3.setFont(new java.awt.Font("Google Sans", 1, 12)); // NOI18N
+        jLabel3.setForeground(java.awt.Color.darkGray);
         jLabel3.setText("Password");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 120, -1, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, 20));
 
-        jLabel1.setFont(new java.awt.Font("Google Sans Medium", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 255, 102));
+        jLabel1.setFont(new java.awt.Font("Google Sans", 1, 12)); // NOI18N
+        jLabel1.setForeground(java.awt.Color.darkGray);
         jLabel1.setText("Username");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 70, -1, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, -1, 20));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/Login_background.jpeg")));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 525, 340));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Login_icon.gif"))); // NOI18N
+        jLabel4.setMaximumSize(new java.awt.Dimension(512, 512));
+        jLabel4.setMinimumSize(new java.awt.Dimension(512, 512));
+        jLabel4.setPreferredSize(new java.awt.Dimension(512, 512));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 170, 140));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Login_background.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 450));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/white.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -158,6 +168,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField pwd_field;
     private javax.swing.JTextField txtuname;
     // End of variables declaration//GEN-END:variables

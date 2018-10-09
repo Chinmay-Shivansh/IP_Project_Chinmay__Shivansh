@@ -73,11 +73,11 @@ public class Billing extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Serial no.", "Item", "Price", "Quantity", "Amount"
+                "Item", "Price", "Quantity", "Amount"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -93,7 +93,7 @@ public class Billing extends javax.swing.JFrame {
         jLabel2.setForeground(java.awt.Color.darkGray);
         jLabel2.setText("Quantity");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 60, 20));
-        getContentPane().add(txtQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 70, -1));
+        getContentPane().add(txtQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 70, 20));
 
         btnAdd.setBackground(new java.awt.Color(255, 255, 255));
         btnAdd.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
@@ -208,22 +208,22 @@ public class Billing extends javax.swing.JFrame {
         {
             tbl.getColumnModel().getColumn(columnIndex).setCellRenderer(centreRenderer);
         }
-        ArrayList<String> validValues= new ArrayList<>();
+        ArrayList<String> MenuItems= new ArrayList<>();
     {
         try
         {
             Class.forName("java.sql.Driver");
-            Connection conx = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
-            Statement stmta = conx.createStatement();
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+            Statement stmt = con.createStatement();
             String str="select * from menu;";
-            ResultSet rs=stmta.executeQuery(str);
+            ResultSet rs=stmt.executeQuery(str);
             while(rs.next())
             {
-                validValues.add(rs.getString("Item"));                
+                MenuItems.add(rs.getString("Item"));                
             }
-            conx.close();
-            stmta.close();
-            cmbItem.setModel(new DefaultComboBoxModel(validValues.toArray()));
+            con.close();
+            stmt.close();
+            cmbItem.setModel(new DefaultComboBoxModel(MenuItems.toArray()));
         }
         catch(ClassNotFoundException | NumberFormatException | SQLException e)
         {
@@ -249,11 +249,10 @@ public class Billing extends javax.swing.JFrame {
             while(rs.next())
             {
                 String i=rs.getString("Item");
-                int s = rs.getInt("Serial_No");
                 int p = rs.getInt("Price");
                 int q = Integer.parseInt(txtQty.getText());
                 int a = p*q;
-                Object [] Row = {s,i,p,q,a};
+                Object [] Row = {i,p,q,a};
                 mytable.addRow(Row);
             }
             con.close();
@@ -290,17 +289,17 @@ public class Billing extends javax.swing.JFrame {
         try
         {
             Class.forName("java.sql.Driver");
-                    Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
-                    Statement stmt1 = con1.createStatement();
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+                    Statement stmt = con.createStatement();
                     for(int i=0; i<mytable2.getRowCount();i++)
                     {
                         String tot = Integer.toString(total);
                         String s = "Insert into Bills (Amount, Time) values('"+tot+"', NOW());";
-                        stmt1.executeUpdate(s);
+                        stmt.executeUpdate(s);
                         JOptionPane.showMessageDialog(null, "Bill saved");
                     }
-                    stmt1.close();
-                    con1.close();
+                    stmt.close();
+                    con.close();
         } 
                catch (HeadlessException | ClassNotFoundException | SQLException e)
                {
