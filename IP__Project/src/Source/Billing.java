@@ -11,18 +11,14 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
-/**
- *
- * @author Shivansh
- */
 public class Billing extends javax.swing.JFrame {
 
     /**
@@ -44,7 +40,6 @@ public class Billing extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        txtItem = new javax.swing.JTextField();
         txtQty = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         btnBill = new javax.swing.JButton();
@@ -56,6 +51,7 @@ public class Billing extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         Back_button = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        cmbItem = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,7 +93,6 @@ public class Billing extends javax.swing.JFrame {
         jLabel2.setForeground(java.awt.Color.darkGray);
         jLabel2.setText("Quantity");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 60, 20));
-        getContentPane().add(txtItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 120, -1));
         getContentPane().add(txtQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 70, -1));
 
         btnAdd.setBackground(new java.awt.Color(255, 255, 255));
@@ -168,7 +163,7 @@ public class Billing extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 50, -1));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 50, 20));
 
-        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/arrowhead-thin-outline-to-the-left (1).png"))); // NOI18N
+        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Back_black.png"))); // NOI18N
         Back_button.setBorder(null);
         Back_button.setBorderPainted(false);
         Back_button.setContentAreaFilled(false);
@@ -184,11 +179,25 @@ public class Billing extends javax.swing.JFrame {
         jLabel7.setText("Total:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, -1, 20));
 
+        cmbItem.setFont(new java.awt.Font("Google Sans Medium", 0, 12)); // NOI18N
+        cmbItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbItemActionPerformed(evt);
+            }
+        });
+        cmbItem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cmbItemKeyPressed(evt);
+            }
+        });
+        getContentPane().add(cmbItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 70, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/white.jpg")));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
@@ -199,8 +208,30 @@ public class Billing extends javax.swing.JFrame {
         {
             tbl.getColumnModel().getColumn(columnIndex).setCellRenderer(centreRenderer);
         }
+        ArrayList<String> validValues= new ArrayList<>();
+    {
+        try
+        {
+            Class.forName("java.sql.Driver");
+            Connection conx = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+            Statement stmta = conx.createStatement();
+            String str="select * from menu;";
+            ResultSet rs=stmta.executeQuery(str);
+            while(rs.next())
+            {
+                validValues.add(rs.getString("Item"));                
+            }
+            conx.close();
+            stmta.close();
+            cmbItem.setModel(new DefaultComboBoxModel(validValues.toArray()));
+        }
+        catch(ClassNotFoundException | NumberFormatException | SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
+        
     }//GEN-LAST:event_formWindowActivated
-
+    }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
@@ -213,7 +244,7 @@ public class Billing extends javax.swing.JFrame {
             Class.forName("java.sql.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
             Statement stmt = con.createStatement();
-            String str="select * from menu where Item = '"+txtItem.getText()+"';";
+            String str="select * from menu where Item = '"+cmbItem.getSelectedItem().toString()+"';";
             ResultSet rs=stmt.executeQuery(str);
             while(rs.next())
             {
@@ -283,9 +314,18 @@ public class Billing extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_Back_buttonActionPerformed
 
+    private void cmbItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbItemActionPerformed
+
+    private void cmbItemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbItemKeyPressed
+        // TODO add your handling code here:              
+    }//GEN-LAST:event_cmbItemKeyPressed
+      
     /**
      * @param args the command line arguments
      */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -324,6 +364,7 @@ public class Billing extends javax.swing.JFrame {
     private javax.swing.JButton btnBill;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnRemove;
+    private javax.swing.JComboBox<String> cmbItem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -333,7 +374,6 @@ public class Billing extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbl;
-    private javax.swing.JTextField txtItem;
     private javax.swing.JTextField txtQty;
     // End of variables declaration//GEN-END:variables
 }

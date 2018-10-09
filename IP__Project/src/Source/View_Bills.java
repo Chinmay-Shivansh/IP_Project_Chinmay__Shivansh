@@ -89,7 +89,7 @@ public class View_Bills extends javax.swing.JFrame {
         });
         getContentPane().add(btn_ViewBills, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, -1));
 
-        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/arrowhead-thin-outline-to-the-left (1).png"))); // NOI18N
+        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Back_black.png"))); // NOI18N
         Back_button.setBorder(null);
         Back_button.setBorderPainted(false);
         Back_button.setContentAreaFilled(false);

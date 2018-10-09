@@ -189,9 +189,9 @@ public class Menu extends javax.swing.JFrame {
                 btn_ShowMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_ShowMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, -1, -1));
+        getContentPane().add(btn_ShowMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, -1, -1));
 
-        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/arrowhead-thin-outline-to-the-left (1).png"))); // NOI18N
+        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Back_black.png"))); // NOI18N
         Back_button.setBorder(null);
         Back_button.setBorderPainted(false);
         Back_button.setContentAreaFilled(false);
@@ -202,7 +202,7 @@ public class Menu extends javax.swing.JFrame {
                 Back_buttonActionPerformed(evt);
             }
         });
-        getContentPane().add(Back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
+        getContentPane().add(Back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, 30));
 
         jLabel1.setFont(new java.awt.Font("Google Sans Medium", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -241,7 +241,7 @@ public class Menu extends javax.swing.JFrame {
             Class.forName("java.sql.Driver");
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
                     Statement stmt = con.createStatement();
-                    String s = "Insert into menu values('"+txtSerialInsert.getText()+"', '"+txtItem.getText()+"', "+txtPrice.getText()+");";
+                    String s = "Insert into menu (Item, Price) values('"+txtItem.getText()+"', "+txtPrice.getText()+");";
                     stmt.executeUpdate(s);
                     JOptionPane.showMessageDialog(null, "Record saved");
                     stmt.close();

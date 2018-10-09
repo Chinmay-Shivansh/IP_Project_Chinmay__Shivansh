@@ -122,7 +122,7 @@
     <Component class="javax.swing.JButton" name="Back_button">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Resources/153875724831046294.png"/>
+          <Image iconType="3" name="/Resources/Back_white.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="null" type="code"/>
@@ -135,7 +135,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="260" y="110" width="-1" height="-1"/>
+          <AbsoluteConstraints x="230" y="110" width="-1" height="30"/>
         </Constraint>
       </Constraints>
     </Component>

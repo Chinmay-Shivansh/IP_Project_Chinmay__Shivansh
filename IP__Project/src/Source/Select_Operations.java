@@ -80,7 +80,7 @@ public class Select_Operations extends javax.swing.JFrame {
         });
         getContentPane().add(btnFeedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 130, 30));
 
-        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/153875724831046294.png"))); // NOI18N
+        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Back_white.png"))); // NOI18N
         Back_button.setBorder(null);
         Back_button.setBorderPainted(false);
         Back_button.setContentAreaFilled(false);
@@ -89,7 +89,7 @@ public class Select_Operations extends javax.swing.JFrame {
                 Back_buttonActionPerformed(evt);
             }
         });
-        getContentPane().add(Back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
+        getContentPane().add(Back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, 30));
 
         btnViewBills.setFont(new java.awt.Font("Google Sans Medium", 1, 18)); // NOI18N
         btnViewBills.setForeground(new java.awt.Color(255, 255, 255));

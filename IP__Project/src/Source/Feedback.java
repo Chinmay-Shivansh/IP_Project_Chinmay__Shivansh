@@ -66,7 +66,7 @@ public class Feedback extends javax.swing.JFrame {
         });
         getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, -1));
 
-        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/153875724831046294.png"))); // NOI18N
+        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Back_white.png"))); // NOI18N
         Back_button.setBorder(null);
         Back_button.setBorderPainted(false);
         Back_button.setContentAreaFilled(false);
@@ -75,7 +75,7 @@ public class Feedback extends javax.swing.JFrame {
                 Back_buttonActionPerformed(evt);
             }
         });
-        getContentPane().add(Back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        getContentPane().add(Back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 30));
 
         jLabel1.setFont(new java.awt.Font("Google Sans Medium", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));

@@ -80,7 +80,7 @@
     <Component class="javax.swing.JButton" name="Back_button">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Resources/arrowhead-thin-outline-to-the-left (1).png"/>
+          <Image iconType="3" name="/Resources/Back_black.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="null" type="code"/>
