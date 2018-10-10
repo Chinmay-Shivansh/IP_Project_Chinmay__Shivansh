@@ -208,7 +208,8 @@ public class Billing extends javax.swing.JFrame {
         {
             tbl.getColumnModel().getColumn(columnIndex).setCellRenderer(centreRenderer);
         }
-        ArrayList<String> MenuItems= new ArrayList<>();
+        DefaultComboBoxModel cmbModel = new DefaultComboBoxModel();
+        cmbModel = null;
     {
         try
         {
@@ -219,11 +220,10 @@ public class Billing extends javax.swing.JFrame {
             ResultSet rs=stmt.executeQuery(str);
             while(rs.next())
             {
-                MenuItems.add(rs.getString("Item"));                
+                cmbItem.addItem(rs.getString("Item"));                
             }
             con.close();
             stmt.close();
-            cmbItem.setModel(new DefaultComboBoxModel(MenuItems.toArray()));
         }
         catch(ClassNotFoundException | NumberFormatException | SQLException e)
         {
