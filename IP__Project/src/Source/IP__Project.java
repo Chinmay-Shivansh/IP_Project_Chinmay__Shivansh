@@ -9,13 +9,10 @@ package Source;
  *
  * @author Chinmay Dalal
  */
-public class IP__Project {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
+public class IP__Project
+{    
+    public static void main(String[] args)
+    {
+        new Login().setVisible(true);
+    }    
 }
