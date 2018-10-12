@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -190,7 +191,7 @@ public class Billing extends javax.swing.JFrame {
                 cmbItemKeyPressed(evt);
             }
         });
-        getContentPane().add(cmbItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 70, -1));
+        getContentPane().add(cmbItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 130, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/white.jpg")));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 370));
@@ -250,10 +251,20 @@ public class Billing extends javax.swing.JFrame {
             {
                 String i=rs.getString("Item");
                 int p = rs.getInt("Price");
-                int q = Integer.parseInt(txtQty.getText());
+                int q;
+                if(txtQty.getText().isEmpty())
+                {
+                    q=1;
+                }
+                else
+                {
+                    q=Integer.parseInt(txtQty.getText());
+                }                
                 int a = p*q;
                 Object [] Row = {i,p,q,a};
-                mytable.addRow(Row);
+                SwingUtilities.invokeLater(new Runnable(){public void run(){
+                        mytable.addRow(Row);
+                }});
             }
             con.close();
             stmt.close();
@@ -274,6 +285,9 @@ public class Billing extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableModel mytable1 = (DefaultTableModel)tbl.getModel();
         mytable1.setRowCount(0);
+        txtQty.setText("");
+        jLabel3.setText("");
+        cmbItem.setSelectedIndex(0);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBillActionPerformed
@@ -282,8 +296,7 @@ public class Billing extends javax.swing.JFrame {
         int total =0;
         for(int i=0; i<mytable2.getRowCount();i++)
         {
-            int x = Integer.parseInt(mytable2.getValueAt(i, 5).toString());
-            total+=x;
+            total+=Integer.parseInt(tbl.getValueAt(i, 3).toString());
         }
         jLabel3.setText(""+total);
         try
@@ -291,13 +304,8 @@ public class Billing extends javax.swing.JFrame {
             Class.forName("java.sql.Driver");
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
                     Statement stmt = con.createStatement();
-                    for(int i=0; i<mytable2.getRowCount();i++)
-                    {
-                        String tot = Integer.toString(total);
-                        String s = "Insert into Bills (Amount, Time) values('"+tot+"', NOW());";
-                        stmt.executeUpdate(s);
-                        JOptionPane.showMessageDialog(null, "Bill saved");
-                    }
+                    stmt.executeUpdate("Insert into Bills (Amount, Time) values('"+total+"', NOW());");
+                    JOptionPane.showMessageDialog(null, "Bill saved");
                     stmt.close();
                     con.close();
         } 

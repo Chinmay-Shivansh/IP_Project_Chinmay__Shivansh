@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.table.*;
 
 /**
@@ -73,6 +74,7 @@ public class View_Bills extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(tbl);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 260));
@@ -126,6 +128,7 @@ public class View_Bills extends javax.swing.JFrame {
     private void btn_ViewBillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ViewBillsActionPerformed
         // TODO add your handling code here:
         DefaultTableModel mytable = (DefaultTableModel)tbl.getModel();
+        mytable.setRowCount(0);
          try
         {
             Class.forName("java.sql.Driver");
@@ -139,7 +142,9 @@ public class View_Bills extends javax.swing.JFrame {
                 String tot = rs.getString("Amount");
                 String timestamp = rs.getString("Time");
                 Object [] Row = {n,tot, timestamp};
-                mytable.addRow(Row);
+                SwingUtilities.invokeLater(new Runnable(){public void run(){
+                        mytable.addRow(Row);
+                }});
             }
             con.close();
             stmt.close();
@@ -169,26 +174,25 @@ public class View_Bills extends javax.swing.JFrame {
 
     private void btn_DeleteBillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DeleteBillsActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel mytable = (DefaultTableModel)tbl.getModel();
         int DialogueResult = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the selected bills?");
         if(DialogueResult == JOptionPane.YES_OPTION)
         {
-            for(int i = 0; i<=tbl.getRowCount();i++)
-        {
-            int x = (int) tbl.getValueAt(i+1, 1);
+            int x = tbl.getSelectedRow();
+            int y = Integer.parseInt(mytable.getValueAt(x, 0).toString());
              try
             {
             Class.forName("java.sql.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
             Statement stmt = con.createStatement();
-            String update = "delete from bills where Bill_number="+x+"";
+            String update = "delete from bills where Bill_number="+y+"";
             stmt.executeUpdate(update);
             }
             catch(ClassNotFoundException | SQLException e)
             {
                  JOptionPane.showMessageDialog(null, e);
             }
-        }                                        
-        }
+        }                                                
     }//GEN-LAST:event_btn_DeleteBillsActionPerformed
 
     /**
