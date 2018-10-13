@@ -46,7 +46,6 @@ public class Extract_database extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(600, 600));
         setMinimumSize(new java.awt.Dimension(600, 600));
-        setPreferredSize(new java.awt.Dimension(600, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnNext.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
@@ -79,9 +78,6 @@ public class Extract_database extends javax.swing.JFrame {
         getContentPane().add(lblProgress, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 240, 19));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Database background.jpg"))); // NOI18N
-        jLabel1.setMaximumSize(new java.awt.Dimension(600, 600));
-        jLabel1.setMinimumSize(new java.awt.Dimension(600, 600));
-        jLabel1.setPreferredSize(new java.awt.Dimension(600, 600));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
 
         pack();
@@ -112,7 +108,7 @@ public class Extract_database extends javax.swing.JFrame {
     String d = null;        
         try //try-catch was auto-generated
         {
-            d = (new File(IP__Project.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath()).replace("IP__Project.jar", "Database.sql");
+            d = (new File(IP__Project.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath()).replace("Restaurant Management.jar", "Database.sql");
         } 
         catch (URISyntaxException ex)
         {
