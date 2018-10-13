@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Source;
-
 /**
  *
  * @author Chinmay Dalal
@@ -12,7 +11,7 @@ package Source;
 public class IP__Project
 {    
     public static void main(String[] args)
-    {
-        new Login().setVisible(true);
-    }    
+    {    
+        new Intro().setVisible(true);
+    }        
 }
