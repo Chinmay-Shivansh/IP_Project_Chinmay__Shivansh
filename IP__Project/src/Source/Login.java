@@ -13,8 +13,14 @@ import javax.swing.JOptionPane;
  *
  * @author L35
  */
-public class Login extends javax.swing.JFrame {
-
+public class Login extends javax.swing.JFrame 
+{
+    String u,p;
+        public void setCredentials(String MySQL_Username, String MySQL_Password) 
+        {
+            u = MySQL_Username;
+            p = MySQL_Password;
+        }
     /** Creates new form Login */
     public Login() {
         initComponents();
@@ -91,7 +97,7 @@ public class Login extends javax.swing.JFrame {
       try
       {
           Class.forName("java.sql.Driver");
-          Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project","root","123456");
+          Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database",u , p);
           Statement stmt = con.createStatement();
           String check_query = "SELECT Username, Password FROM login_credentials";
           try (ResultSet results = stmt.executeQuery(check_query))
@@ -117,7 +123,8 @@ public class Login extends javax.swing.JFrame {
           
           if(exist)
           {
-              new Select_Operations().setVisible(true);
+              Select_Operations so = new Select_Operations();
+              so.setVisible(true);
               this.dispose();
           }
       }

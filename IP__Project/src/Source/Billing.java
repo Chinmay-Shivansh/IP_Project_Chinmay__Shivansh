@@ -19,7 +19,14 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
-public class Billing extends javax.swing.JFrame {
+public class Billing extends javax.swing.JFrame 
+{
+    String u,p;
+        public void setCredentials(String MySQL_Username, String MySQL_Password) 
+        {
+            u = MySQL_Username;
+            p = MySQL_Password;
+        }
 
     /**
      * Creates new form Billing
@@ -48,7 +55,7 @@ public class Billing extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
         Back_button = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         cmbItem = new javax.swing.JComboBox<>();
@@ -58,11 +65,11 @@ public class Billing extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
+            }
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -161,7 +168,7 @@ public class Billing extends javax.swing.JFrame {
         jLabel6.setForeground(java.awt.Color.darkGray);
         jLabel6.setText("Item");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 50, -1));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 50, 20));
+        getContentPane().add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 50, 20));
 
         Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Back_black.png"))); // NOI18N
         Back_button.setBorder(null);
@@ -214,7 +221,7 @@ public class Billing extends javax.swing.JFrame {
         try
         {
             Class.forName("java.sql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
             Statement stmt = con.createStatement();
             String str="select * from menu;";
             ResultSet rs=stmt.executeQuery(str);
@@ -242,7 +249,7 @@ public class Billing extends javax.swing.JFrame {
          try
         {
             Class.forName("java.sql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
             Statement stmt = con.createStatement();
             String str="select * from menu where Item = '"+cmbItem.getSelectedItem().toString()+"';";
             ResultSet rs=stmt.executeQuery(str);
@@ -261,9 +268,14 @@ public class Billing extends javax.swing.JFrame {
                 }                
                 int a = p*q;
                 Object [] Row = {i,p,q,a};
-                SwingUtilities.invokeLater(new Runnable(){public void run(){
+                SwingUtilities.invokeLater(new Runnable()
+                {
+                    public void run()
+                    {
                         mytable.addRow(Row);
-                }});
+                    }
+                }
+                 );
             }
             con.close();
             stmt.close();
@@ -285,7 +297,7 @@ public class Billing extends javax.swing.JFrame {
         DefaultTableModel mytable1 = (DefaultTableModel)tbl.getModel();
         mytable1.setRowCount(0);
         txtQty.setText("");
-        jLabel3.setText("");
+        lblTotal.setText("");
         cmbItem.setSelectedIndex(0);
     }//GEN-LAST:event_btnClearActionPerformed
 
@@ -297,11 +309,11 @@ public class Billing extends javax.swing.JFrame {
         {
             total+=Integer.parseInt(tbl.getValueAt(i, 3).toString());
         }
-        jLabel3.setText(""+total);
+        lblTotal.setText(""+total);
         try
         {
             Class.forName("java.sql.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
                     Statement stmt = con.createStatement();
                     stmt.executeUpdate("Insert into Bills (Amount, Time) values('"+total+"', NOW());");
                     JOptionPane.showMessageDialog(null, "Bill saved");
@@ -316,7 +328,7 @@ public class Billing extends javax.swing.JFrame {
 
     private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
         // TODO add your handling code here:
-        new Select_Operations().setVisible(true);
+        new Extract_database_and_get_MySQL_credentials().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Back_buttonActionPerformed
 
@@ -373,12 +385,12 @@ public class Billing extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbItem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblTotal;
     private javax.swing.JTable tbl;
     private javax.swing.JTextField txtQty;
     // End of variables declaration//GEN-END:variables

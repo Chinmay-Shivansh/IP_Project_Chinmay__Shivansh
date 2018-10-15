@@ -22,10 +22,11 @@ import javax.swing.JOptionPane;
  *
  * @author Chinmay Dalal
  */
-public class Extract_database extends javax.swing.JFrame {
-
-    /** Creates new form Extract_database */
-    public Extract_database() {
+public class Extract_database_and_get_MySQL_credentials extends javax.swing.JFrame 
+{   
+   /** Creates new form Extract_database */
+    public Extract_database_and_get_MySQL_credentials()
+    {
         initComponents();
     }
 
@@ -48,7 +49,6 @@ public class Extract_database extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(600, 600));
         setMinimumSize(new java.awt.Dimension(600, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -94,7 +94,7 @@ public class Extract_database extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public static void Extract(InputStream source , String destination, JLabel lbl) 
+    public void Extract(InputStream source , String destination, JLabel lbl) 
     {
         lbl.setText("Copying");
         try 
@@ -107,19 +107,20 @@ public class Extract_database extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex);
             lbl.setText("Failed to extract database");
         }
-    }
-    
+    }    
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
         String m_uname = txtMySQL_uname.getText();
-        String m_password = new String(MySQL_pwdfield.getPassword()); 
+        String m_password= new String(MySQL_pwdfield.getPassword());
         if(m_uname.isEmpty()||m_password.isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Please enter your MySQL username and password");
         }
         else
         {
-            new Login().setVisible(true);
+            Login login = new Login();
+            login.setCredentials(m_uname, m_password);
+            login.setVisible(true);
             this.dispose();
         }        
     }//GEN-LAST:event_btnNextActionPerformed
@@ -134,7 +135,7 @@ public class Extract_database extends javax.swing.JFrame {
         } 
         catch (URISyntaxException ex)
         {
-            Logger.getLogger(Extract_database.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Extract_database_and_get_MySQL_credentials.class.getName()).log(Level.SEVERE, null, ex);
         }
     Extract(s, d, lblProgress);
     }//GEN-LAST:event_btnExtractActionPerformed
@@ -157,14 +158,15 @@ public class Extract_database extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Extract_database.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Extract_database_and_get_MySQL_credentials.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Extract_database.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Extract_database_and_get_MySQL_credentials.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Extract_database.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Extract_database_and_get_MySQL_credentials.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Extract_database.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Extract_database_and_get_MySQL_credentials.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -173,7 +175,7 @@ public class Extract_database extends javax.swing.JFrame {
             {
                 public void run() 
                 {
-                new Extract_database().setVisible(true);
+                new Extract_database_and_get_MySQL_credentials().setVisible(true);
                 }
             }
         );

@@ -14,7 +14,14 @@ import java.util.Date;
  *
  * @author Chinmay Dalal
  */
-public class Feedback extends javax.swing.JFrame {
+public class Feedback extends javax.swing.JFrame 
+{
+    String u,p;
+        public void setCredentials(String MySQL_Username, String MySQL_Password) 
+        {
+            u = MySQL_Username;
+            p = MySQL_Password;
+        }
 
     /** Creates new form Feedback */
     public Feedback() {
@@ -86,13 +93,13 @@ public class Feedback extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        // TODO add your handling code here:   
+        // TODO add your handling code here:
         Date d=new Date();
         d.getDate();        
         try
         {
             Class.forName("java.sql.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
                     Statement stmt = con.createStatement();         
                     String s = "insert into feedback values('"+d+"','"+ta.getText()+"')";
                     stmt.executeUpdate(s);
@@ -112,7 +119,7 @@ public class Feedback extends javax.swing.JFrame {
 
     private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
         // TODO add your handling code here:
-        new Select_Operations().setVisible(true);
+        new Extract_database_and_get_MySQL_credentials().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Back_buttonActionPerformed
 

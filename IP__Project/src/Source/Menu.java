@@ -19,8 +19,15 @@ import javax.swing.table.*;
  *
  * @author Shivansh
  */
-public class Menu extends javax.swing.JFrame {
-
+public class Menu extends javax.swing.JFrame 
+{
+    String u,p;
+        public void setCredentials(String MySQL_Username, String MySQL_Password) 
+        {
+            u = MySQL_Username;
+            p = MySQL_Password;
+        }
+    
     /**
      * Creates new form Menu
      */
@@ -220,7 +227,7 @@ public class Menu extends javax.swing.JFrame {
                 try
         {
             Class.forName("java.sql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
             Statement stmt = con.createStatement();
             String s="delete from menu where serial_no ="+txtSerialSearch.getText()+";";
             stmt.executeUpdate(s);
@@ -235,11 +242,11 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
                try
         {
             Class.forName("java.sql.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
                     Statement stmt = con.createStatement();
                     String s = "Insert into menu (Item, Price) values('"+txtItem.getText()+"', "+txtPrice.getText()+");";
                     stmt.executeUpdate(s);
@@ -254,11 +261,11 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
          try
         {
             Class.forName("java.sql.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost/ip_project","root","123456");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost/Database",u, p);
             Statement stmt=con.createStatement();
             String s="update menu set item='"+txtItem.getText()+"' where serial_no="+txtSerialInsert.getText()+";";
             stmt.executeUpdate(s);
@@ -287,7 +294,7 @@ public class Menu extends javax.swing.JFrame {
         try
         {
             Class.forName("java.sql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
             Statement stmt = con.createStatement();
             String str="select * from menu where serial_no ="+txtSerialSearch.getText()+";";
             ResultSet rs=stmt.executeQuery(str);
@@ -311,7 +318,7 @@ public class Menu extends javax.swing.JFrame {
         try
         {
             Class.forName("java.sql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ip_project", "root", "123456");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
             Statement stmt = con.createStatement();
             String str="select * from menu;";
             ResultSet rs=stmt.executeQuery(str);
@@ -345,7 +352,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
         // TODO add your handling code here:
-        new Select_Operations().setVisible(true);
+        new Extract_database_and_get_MySQL_credentials().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Back_buttonActionPerformed
 

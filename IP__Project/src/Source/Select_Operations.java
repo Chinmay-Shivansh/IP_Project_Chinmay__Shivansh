@@ -9,7 +9,14 @@ package Source;
  *
  * @author Shivansh
  */
-public class Select_Operations extends javax.swing.JFrame {
+public class Select_Operations extends javax.swing.JFrame 
+{
+    String u,p;
+        public void setCredentials(String MySQL_Username, String MySQL_Password) 
+        {
+            u = MySQL_Username;
+            p = MySQL_Password;
+        }
 
     /**
      * Creates new form Select_Operations
@@ -97,6 +104,11 @@ public class Select_Operations extends javax.swing.JFrame {
         btnViewBills.setBorder(null);
         btnViewBills.setBorderPainted(false);
         btnViewBills.setContentAreaFilled(false);
+        btnViewBills.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewBillsActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnViewBills, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/SelectOperations_background.jpg")));
@@ -107,27 +119,41 @@ public class Select_Operations extends javax.swing.JFrame {
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
-        new Menu().setVisible(true);
+        Menu menu = new Menu();
+        menu.setCredentials(u, p);
+        menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void btnBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBillingActionPerformed
         // TODO add your handling code here:
-        new Billing().setVisible(true);
+        Billing billing = new Billing();
+        billing.setCredentials(u, p);
+        billing.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBillingActionPerformed
 
     private void btnFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFeedbackActionPerformed
         // TODO add your handling code here:
-        new Feedback().setVisible(true);
+        Feedback feedback = new Feedback();
+        feedback.setCredentials(u, p);
+        feedback.setVisible(true);
         this.dispose();        
     }//GEN-LAST:event_btnFeedbackActionPerformed
 
     private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
         // TODO add your handling code here:
-        new Login().setVisible(true);
+        new Extract_database_and_get_MySQL_credentials().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Back_buttonActionPerformed
+
+    private void btnViewBillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewBillsActionPerformed
+        // TODO add your handling code here:
+        View_Bills viewbills = new View_Bills();
+        viewbills.setCredentials(u, p);
+        viewbills.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnViewBillsActionPerformed
 
     /**
      * @param args the command line arguments

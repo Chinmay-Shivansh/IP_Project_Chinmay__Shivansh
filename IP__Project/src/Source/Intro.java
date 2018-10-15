@@ -65,7 +65,7 @@ public class Intro extends javax.swing.JFrame {
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
         // TODO add your handling code here:
-        new Extract_database().setVisible(true);
+        new Extract_database_and_get_MySQL_credentials().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnOKActionPerformed
 
