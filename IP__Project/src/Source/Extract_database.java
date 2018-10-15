@@ -41,6 +41,10 @@ public class Extract_database extends javax.swing.JFrame {
         btnNext = new javax.swing.JButton();
         btnExtract = new javax.swing.JButton();
         lblProgress = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtMySQL_uname = new javax.swing.JTextField();
+        MySQL_pwdfield = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,12 +74,20 @@ public class Extract_database extends javax.swing.JFrame {
                 btnExtractActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExtract, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
+        getContentPane().add(btnExtract, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
 
         lblProgress.setFont(new java.awt.Font("Google Sans Medium", 0, 12)); // NOI18N
         lblProgress.setForeground(new java.awt.Color(255, 255, 255));
         lblProgress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(lblProgress, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 240, 19));
+        getContentPane().add(lblProgress, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 240, 19));
+
+        jLabel2.setText("MySQL username");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 110, 20));
+
+        jLabel3.setText("MySQL password");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 100, -1));
+        getContentPane().add(txtMySQL_uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 110, -1));
+        getContentPane().add(MySQL_pwdfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 110, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Database background.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
@@ -96,10 +108,20 @@ public class Extract_database extends javax.swing.JFrame {
             lbl.setText("Failed to extract database");
         }
     }
+    
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
-        new Login().setVisible(true);
-        this.dispose();
+        String m_uname = txtMySQL_uname.getText();
+        String m_password = new String(MySQL_pwdfield.getPassword()); 
+        if(m_uname.isEmpty()||m_password.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter your MySQL username and password");
+        }
+        else
+        {
+            new Login().setVisible(true);
+            this.dispose();
+        }        
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnExtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExtractActionPerformed
@@ -158,10 +180,14 @@ public class Extract_database extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField MySQL_pwdfield;
     private javax.swing.JButton btnExtract;
     private javax.swing.JButton btnNext;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblProgress;
+    private javax.swing.JTextField txtMySQL_uname;
     // End of variables declaration//GEN-END:variables
 
 }
