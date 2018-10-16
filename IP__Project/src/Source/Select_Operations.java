@@ -143,7 +143,9 @@ public class Select_Operations extends javax.swing.JFrame
 
     private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
         // TODO add your handling code here:
-        new Extract_database_and_get_MySQL_credentials().setVisible(true);
+        Login login = new Login();
+        login.setCredentials(u, p);
+        login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Back_buttonActionPerformed
 

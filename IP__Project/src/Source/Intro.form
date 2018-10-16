@@ -18,7 +18,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-35,0,0,2,-20"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,14,0,0,2,-20"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -33,11 +33,11 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa; &lt;h1&gt;Intro&lt;/h1&gt;&#xa; &lt;br&gt; &#xa;This Java application was created by &lt;b&gt;Chinmay Dalal&lt;/b&gt; and &lt;b&gt;Shivansh Rajpurohit.&lt;/b&gt;&#xa; &lt;br&gt;&lt;br&gt; &#xa;&lt;h3&gt;How to use this program for the first time:&lt;/h3&gt; &#xa;&lt;ul type=&quot;disk&quot;&gt;&#xa; &lt;li&gt;Click on Extract database button in the next window.&#xa; &lt;li&gt;Go to your MySQL installation directory. By default, it is:&lt;br&gt;&amp;emsp&lt;font face = &quot;Consolas&quot; color=&quot;006a4e&quot;&gt;C:/Program Files/MySQL/MySQL Server [MySQL version]&lt;/font&gt;&#xa; &lt;li&gt;Open &lt;font face = &quot;Consolas&quot; color=&quot;blue&quot;&gt;&lt;b&gt;bin&lt;/b&gt;&lt;/font&gt;.&#xa; &lt;li&gt;The program will have extracted Database.sql in its working directory. Copy it here.&#xa; &lt;li&gt;Open a command window here and type: &lt;br&gt;&amp;emsp&lt;font face = &quot;Consolas&quot; color=&quot;006a4e&quot;&gt;mysql -u [username here] -p[password here] Database &amp;lt Database.sql&lt;/font&gt; &lt;li&gt;Click &lt;b&gt;Next&gt;&lt;/b&gt;.&lt;/ul&gt; &lt;/html&gt;&#x9;"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;  &lt;h1&gt;Intro&lt;/h1&gt;  &lt;br&gt;  This Java application was created by &lt;b&gt;Chinmay Dalal&lt;/b&gt; and &lt;b&gt;Shivansh Rajpurohit.&lt;/b&gt;  &lt;br&gt;&lt;br&gt;  &lt;h3&gt;How to use this program for the first time:&lt;/h3&gt;  &lt;ul type=&quot;disk&quot;&gt;  &lt;li&gt;In the next window, enter the path to extract the database to (using backslash for subdirectory)(will extract to working directory if path is not entered), then click on Extract database button. &lt;li&gt;Go to your MySQL installation directory. By default, it is:&lt;br&gt;&amp;emsp&lt;font face = &quot;Consolas&quot; color=&quot;006a4e&quot;&gt;C:/Program Files/MySQL/MySQL Server [MySQL version]&lt;/font&gt;  &lt;li&gt;Open &lt;font face = &quot;Consolas&quot; color=&quot;blue&quot;&gt;&lt;b&gt;bin&lt;/b&gt;&lt;/font&gt;.  &lt;li&gt;Copy the database here, open a command window and type: &lt;br&gt;&amp;emsp&lt;font face = &quot;Consolas&quot; color=&quot;006a4e&quot;&gt;mysql -u [username here] -p[password here] Database &amp;lt Database.sql&lt;/font&gt; &lt;li&gt;Click &lt;b&gt;Next&gt;&lt;/b&gt;.&lt;/ul&gt; &lt;/html&gt;&#x9;"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="70" y="90" width="619" height="300"/>
+          <AbsoluteConstraints x="70" y="90" width="619" height="330"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -58,7 +58,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="350" y="410" width="-1" height="-1"/>
+          <AbsoluteConstraints x="350" y="460" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -87,7 +87,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="-2" y="0" width="750" height="480"/>
+          <AbsoluteConstraints x="-2" y="0" width="750" height="530"/>
         </Constraint>
       </Constraints>
     </Component>

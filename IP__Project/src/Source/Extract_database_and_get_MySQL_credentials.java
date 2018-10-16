@@ -46,6 +46,8 @@ public class Extract_database_and_get_MySQL_credentials extends javax.swing.JFra
         jLabel3 = new javax.swing.JLabel();
         txtMySQL_uname = new javax.swing.JTextField();
         MySQL_pwdfield = new javax.swing.JPasswordField();
+        txtPath = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,20 +76,30 @@ public class Extract_database_and_get_MySQL_credentials extends javax.swing.JFra
                 btnExtractActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExtract, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
+        getContentPane().add(btnExtract, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
 
         lblProgress.setFont(new java.awt.Font("Google Sans Medium", 0, 12)); // NOI18N
         lblProgress.setForeground(new java.awt.Color(255, 255, 255));
         lblProgress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(lblProgress, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 240, 19));
+        getContentPane().add(lblProgress, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 260, 19));
 
+        jLabel2.setFont(new java.awt.Font("Google Sans Medium", 0, 15)); // NOI18N
+        jLabel2.setForeground(java.awt.Color.white);
         jLabel2.setText("MySQL username");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 110, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 130, 20));
 
+        jLabel3.setFont(new java.awt.Font("Google Sans Medium", 0, 15)); // NOI18N
+        jLabel3.setForeground(java.awt.Color.white);
         jLabel3.setText("MySQL password");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 100, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 130, -1));
         getContentPane().add(txtMySQL_uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 110, -1));
         getContentPane().add(MySQL_pwdfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 110, -1));
+        getContentPane().add(txtPath, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 170, -1));
+
+        jLabel4.setFont(new java.awt.Font("Google Sans Medium", 0, 15)); // NOI18N
+        jLabel4.setForeground(java.awt.Color.white);
+        jLabel4.setText("<html><p align=\"center\">Path to extract to:<br>(will extract to working directory by default)</p></html>");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Database background.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
@@ -131,7 +143,14 @@ public class Extract_database_and_get_MySQL_credentials extends javax.swing.JFra
     String d = null;        
         try //try-catch was auto-generated
         {
-            d = (new File(IP__Project.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath()).replace("Restaurant Management.jar", "Database.sql");
+            if(txtPath.getText().isEmpty())
+            {
+                d = (new File(IP__Project.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath()).replace("Restaurant Management.jar", "Restaurant_DB.sql");
+            }
+            else
+            {
+                d = txtPath.getText()+"\\Restaurant_DB.sql";
+            }
         } 
         catch (URISyntaxException ex)
         {
@@ -188,8 +207,10 @@ public class Extract_database_and_get_MySQL_credentials extends javax.swing.JFra
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblProgress;
     private javax.swing.JTextField txtMySQL_uname;
+    private javax.swing.JTextField txtPath;
     // End of variables declaration//GEN-END:variables
 
 }

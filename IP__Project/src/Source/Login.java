@@ -97,7 +97,7 @@ public class Login extends javax.swing.JFrame
       try
       {
           Class.forName("java.sql.Driver");
-          Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database",u , p);
+          Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_DB",u , p);
           Statement stmt = con.createStatement();
           String check_query = "SELECT Username, Password FROM login_credentials";
           try (ResultSet results = stmt.executeQuery(check_query))
@@ -124,6 +124,7 @@ public class Login extends javax.swing.JFrame
           if(exist)
           {
               Select_Operations so = new Select_Operations();
+              so.setCredentials(u, p);
               so.setVisible(true);
               this.dispose();
           }

@@ -227,7 +227,7 @@ public class Menu extends javax.swing.JFrame
                 try
         {
             Class.forName("java.sql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_DB", u, p);
             Statement stmt = con.createStatement();
             String s="delete from menu where serial_no ="+txtSerialSearch.getText()+";";
             stmt.executeUpdate(s);
@@ -246,7 +246,7 @@ public class Menu extends javax.swing.JFrame
                try
         {
             Class.forName("java.sql.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_DB", u, p);
                     Statement stmt = con.createStatement();
                     String s = "Insert into menu (Item, Price) values('"+txtItem.getText()+"', "+txtPrice.getText()+");";
                     stmt.executeUpdate(s);
@@ -265,7 +265,7 @@ public class Menu extends javax.swing.JFrame
          try
         {
             Class.forName("java.sql.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost/Database",u, p);
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_DB",u, p);
             Statement stmt=con.createStatement();
             String s="update menu set item='"+txtItem.getText()+"' where serial_no="+txtSerialInsert.getText()+";";
             stmt.executeUpdate(s);
@@ -294,7 +294,7 @@ public class Menu extends javax.swing.JFrame
         try
         {
             Class.forName("java.sql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_DB", u, p);
             Statement stmt = con.createStatement();
             String str="select * from menu where serial_no ="+txtSerialSearch.getText()+";";
             ResultSet rs=stmt.executeQuery(str);
@@ -318,7 +318,7 @@ public class Menu extends javax.swing.JFrame
         try
         {
             Class.forName("java.sql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_DB", u, p);
             Statement stmt = con.createStatement();
             String str="select * from menu;";
             ResultSet rs=stmt.executeQuery(str);
@@ -352,7 +352,9 @@ public class Menu extends javax.swing.JFrame
 
     private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
         // TODO add your handling code here:
-        new Extract_database_and_get_MySQL_credentials().setVisible(true);
+        Select_Operations so = new Select_Operations();
+        so.setCredentials(u, p);
+        so.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Back_buttonActionPerformed
 

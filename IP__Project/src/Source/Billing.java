@@ -221,7 +221,7 @@ public class Billing extends javax.swing.JFrame
         try
         {
             Class.forName("java.sql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_DB", u, p);
             Statement stmt = con.createStatement();
             String str="select * from menu;";
             ResultSet rs=stmt.executeQuery(str);
@@ -249,7 +249,7 @@ public class Billing extends javax.swing.JFrame
          try
         {
             Class.forName("java.sql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_DB", u, p);
             Statement stmt = con.createStatement();
             String str="select * from menu where Item = '"+cmbItem.getSelectedItem().toString()+"';";
             ResultSet rs=stmt.executeQuery(str);
@@ -313,7 +313,7 @@ public class Billing extends javax.swing.JFrame
         try
         {
             Class.forName("java.sql.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_DB", u, p);
                     Statement stmt = con.createStatement();
                     stmt.executeUpdate("Insert into Bills (Amount, Time) values('"+total+"', NOW());");
                     JOptionPane.showMessageDialog(null, "Bill saved");
@@ -328,7 +328,9 @@ public class Billing extends javax.swing.JFrame
 
     private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
         // TODO add your handling code here:
-        new Extract_database_and_get_MySQL_credentials().setVisible(true);
+        Select_Operations so = new Select_Operations();
+        so.setCredentials(u, p);
+        so.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Back_buttonActionPerformed
 

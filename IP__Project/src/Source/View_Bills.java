@@ -139,7 +139,7 @@ public class View_Bills extends javax.swing.JFrame
          try
         {
             Class.forName("java.sql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_DB", u, p);
             Statement stmt = con.createStatement();
             String str="select * from Bills;";
             ResultSet rs=stmt.executeQuery(str);
@@ -175,7 +175,9 @@ public class View_Bills extends javax.swing.JFrame
 
     private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
         // TODO add your handling code here:
-        new Extract_database_and_get_MySQL_credentials().setVisible(true);
+        Select_Operations so = new Select_Operations();
+        so.setCredentials(u, p);
+        so.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Back_buttonActionPerformed
 
@@ -190,7 +192,7 @@ public class View_Bills extends javax.swing.JFrame
              try
             {
             Class.forName("java.sql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Database", u, p);
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_DB", u, p);
             Statement stmt = con.createStatement();
             String update = "delete from bills where Bill_number="+y+"";
             stmt.executeUpdate(update);
