@@ -47,7 +47,7 @@ public class Login extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(txtuname, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 110, -1));
+        getContentPane().add(txtuname, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 110, -1));
 
         btnLogin.setFont(new java.awt.Font("Google Sans", 1, 16)); // NOI18N
         btnLogin.setForeground(java.awt.Color.darkGray);
@@ -62,7 +62,7 @@ public class Login extends javax.swing.JFrame
             }
         });
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 90, -1));
-        getContentPane().add(pwd_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 110, -1));
+        getContentPane().add(pwd_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, 110, -1));
 
         jLabel3.setFont(new java.awt.Font("Google Sans", 1, 12)); // NOI18N
         jLabel3.setForeground(java.awt.Color.darkGray);
@@ -71,7 +71,7 @@ public class Login extends javax.swing.JFrame
 
         jLabel1.setFont(new java.awt.Font("Google Sans", 1, 12)); // NOI18N
         jLabel1.setForeground(java.awt.Color.darkGray);
-        jLabel1.setText("Username");
+        jLabel1.setText("Username (Employee ID)");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, -1, 20));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Login_icon.gif"))); // NOI18N

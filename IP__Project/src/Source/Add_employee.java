@@ -52,17 +52,23 @@ public class Add_employee extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Personal Details"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Personal Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Google Sans", 1, 14))); // NOI18N
+        jPanel1.setForeground(java.awt.Color.darkGray);
 
+        jLabel3.setFont(new java.awt.Font("Google Sans Medium", 0, 12)); // NOI18N
         jLabel3.setText("Name");
 
+        jLabel4.setFont(new java.awt.Font("Google Sans Medium", 0, 12)); // NOI18N
         jLabel4.setText("Date of birth");
 
+        jLabel5.setFont(new java.awt.Font("Google Sans Medium", 0, 12)); // NOI18N
         jLabel5.setText("Sex");
 
+        jLabel6.setFont(new java.awt.Font("Google Sans Medium", 0, 12)); // NOI18N
         jLabel6.setText("Qualifications");
 
         txtQual.setColumns(20);
+        txtQual.setFont(new java.awt.Font("Google Sans", 0, 12)); // NOI18N
         txtQual.setRows(5);
         jScrollPane1.setViewportView(txtQual);
 
@@ -73,20 +79,20 @@ public class Add_employee extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtSex, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(30, 30, 30)
-                        .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(32, 32, 32)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addGap(67, 67, 67)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 75, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtSex, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -113,16 +119,19 @@ public class Add_employee extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 350, 200));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 460, 200));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Login Details"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Google Sans", 1, 14))); // NOI18N
+        jPanel2.setForeground(java.awt.Color.darkGray);
 
-        jLabel8.setText("Employee ID/Username");
+        jLabel8.setFont(new java.awt.Font("Google Sans Medium", 0, 12)); // NOI18N
+        jLabel8.setText("Employee ID");
 
+        jLabel9.setFont(new java.awt.Font("Google Sans Medium", 0, 12)); // NOI18N
         jLabel9.setText("Password");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -138,7 +147,7 @@ public class Add_employee extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtEID, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,37 +160,41 @@ public class Add_employee extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 283, 350, 150));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 283, 460, 150));
 
+        btnEnter.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
+        btnEnter.setForeground(java.awt.Color.darkGray);
         btnEnter.setText("Enter");
-        getContentPane().add(btnEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 440, -1, -1));
+        btnEnter.setBorderPainted(false);
+        btnEnter.setContentAreaFilled(false);
+        getContentPane().add(btnEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 440, -1, -1));
 
+        tbl.setBorder(null);
+        tbl.setFont(new java.awt.Font("Google Sans", 0, 12)); // NOI18N
         tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "<html><p align='center'>Employee ID</p></html>", "Name", "DOB", "Sex"
             }
         ));
         jScrollPane2.setViewportView(tbl);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 290, 220));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 350, 220));
 
         btnView.setBackground(new java.awt.Color(0, 0, 0));
+        btnView.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
         btnView.setForeground(new java.awt.Color(255, 255, 255));
         btnView.setText("View employees");
         btnView.setBorder(null);
         btnView.setBorderPainted(false);
         btnView.setContentAreaFilled(false);
         btnView.setOpaque(true);
-        getContentPane().add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, -1));
+        getContentPane().add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Add employee.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 428, 485));

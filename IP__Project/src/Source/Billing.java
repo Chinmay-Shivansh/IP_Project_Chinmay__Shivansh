@@ -94,7 +94,7 @@ public class Billing extends javax.swing.JFrame
         tbl.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tbl);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 350, 330));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 370, 330));
 
         jLabel2.setFont(new java.awt.Font("Google Sans Medium", 0, 12)); // NOI18N
         jLabel2.setForeground(java.awt.Color.darkGray);
