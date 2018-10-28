@@ -92,8 +92,14 @@ public class Extract_database_and_get_MySQL_credentials extends javax.swing.JFra
         jLabel3.setForeground(java.awt.Color.white);
         jLabel3.setText("MySQL password");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 130, -1));
+
+        txtMySQL_uname.setFont(new java.awt.Font("Google Sans", 0, 12)); // NOI18N
         getContentPane().add(txtMySQL_uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 110, -1));
+
+        MySQL_pwdfield.setFont(new java.awt.Font("Google Sans", 0, 12)); // NOI18N
         getContentPane().add(MySQL_pwdfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 110, -1));
+
+        txtPath.setFont(new java.awt.Font("Google Sans", 0, 12)); // NOI18N
         getContentPane().add(txtPath, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 170, -1));
 
         jLabel4.setFont(new java.awt.Font("Google Sans Medium", 0, 15)); // NOI18N
@@ -189,8 +195,7 @@ public class Extract_database_and_get_MySQL_credentials extends javax.swing.JFra
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater
-        (new Runnable()
+        java.awt.EventQueue.invokeLater(new Runnable()
             {
                 public void run() 
                 {

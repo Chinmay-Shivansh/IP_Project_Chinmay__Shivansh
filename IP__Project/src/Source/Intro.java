@@ -10,10 +10,12 @@ package Source;
  *
  * @author Chinmay Dalal
  */
-public class Intro extends javax.swing.JFrame {
+public class Intro extends javax.swing.JFrame 
+{
 
     /** Creates new form Intro */
-    public Intro() {
+    public Intro() 
+    {
         initComponents();
     }
 
@@ -36,8 +38,8 @@ public class Intro extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
         jLabel1.setForeground(java.awt.Color.darkGray);
-        jLabel1.setText("<html>  <h1>Intro</h1>  <br>  This Java application was created by <b>Chinmay Dalal</b> and <b>Shivansh Rajpurohit.</b>  <br><br>  <h3>How to use this program for the first time:</h3>  <ul type=\"disk\">  <li>In the next window, enter the path to extract the database to (using backslash for subdirectory)(will extract to working directory if path is not entered), then click on Extract database button. <li>Go to your MySQL installation directory. By default, it is:<br>&emsp<font face = \"Consolas\" color=\"006a4e\">C:/Program Files/MySQL/MySQL Server [MySQL version]</font>  <li>Open <font face = \"Consolas\" color=\"blue\"><b>bin</b></font>.  <li>Copy the database here, open a command window and type: <br>&emsp<font face = \"Consolas\" color=\"006a4e\">mysql -u [username here] -p[password here] Restaurant_DB &lt Database.sql</font> <li>Click <b>Next></b>.</ul> </html>\t");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 619, 330));
+        jLabel1.setText("<html>\n<h1>Intro</h1>  \n            <br>  This Java application was created by <b>Chinmay Dalal</b> and <b>Shivansh Rajpurohit.</b> \n            <br><br>  \n            <h3>How to use this program for the first time:</h3> \n            <ul type=\"disk\">\n                <li>In the next window, enter the path to extract the database to (using backslash for subdirectory)(will extract to working directory if path is not entered), then click on Extract database button. \n                <li>Go to your MySQL installation directory. By default, it is:<br>&emsp;<font face = \"Consolas\" color=\"006a4e\">C:/Program Files/MySQL/MySQL Server [MySQL version]</font>\n                <li>Open <font face = \"Consolas\" color=\"blue\"><b>bin</b></font>.\n                <li>Copy the database here, open a command window and type:<br>&emsp;<font face = \"Consolas\" color=\"006a4e\">mysql -u [username here] -p[password here] create database Restaurant_DB;<br>&emsp;mysql -u [username here] -p[password here] Restaurant_DB &lt; Restaurant_DB.sql</font>\n                <li>Click <b>Next></b>.\n            </ul> \n</html>");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 690, 340));
 
         btnOK.setFont(new java.awt.Font("Google Sans Medium", 1, 14)); // NOI18N
         btnOK.setText("OK");
@@ -72,7 +74,8 @@ public class Intro extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) 
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -97,11 +100,14 @@ public class Intro extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run() 
+            {
                 new Intro().setVisible(true);
             }
-        });
+        }
+        );
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

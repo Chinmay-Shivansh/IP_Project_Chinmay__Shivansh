@@ -21,7 +21,8 @@ public class Select_Operations extends javax.swing.JFrame
     /**
      * Creates new form Select_Operations
      */
-    public Select_Operations() {
+    public Select_Operations() 
+    {
         initComponents();
     }
 
@@ -39,6 +40,7 @@ public class Select_Operations extends javax.swing.JFrame
         btnFeedback = new javax.swing.JButton();
         Back_button = new javax.swing.JButton();
         btnViewBills = new javax.swing.JButton();
+        btnAddEmployee = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -109,7 +111,20 @@ public class Select_Operations extends javax.swing.JFrame
                 btnViewBillsActionPerformed(evt);
             }
         });
-        getContentPane().add(btnViewBills, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, -1, -1));
+        getContentPane().add(btnViewBills, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, 260, -1));
+
+        btnAddEmployee.setFont(new java.awt.Font("Google Sans Medium", 1, 18)); // NOI18N
+        btnAddEmployee.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddEmployee.setText("Add/remove employee");
+        btnAddEmployee.setBorder(null);
+        btnAddEmployee.setBorderPainted(false);
+        btnAddEmployee.setContentAreaFilled(false);
+        btnAddEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddEmployeeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAddEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 250, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/SelectOperations_background.jpg")));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 380));
@@ -157,10 +172,19 @@ public class Select_Operations extends javax.swing.JFrame
         this.dispose();
     }//GEN-LAST:event_btnViewBillsActionPerformed
 
+    private void btnAddEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEmployeeActionPerformed
+        // TODO add your handling code here:
+        Add_or_remove_employee are = new Add_or_remove_employee();
+        are.setCredentials(u, p);
+        are.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAddEmployeeActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) 
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -185,15 +209,20 @@ public class Select_Operations extends javax.swing.JFrame
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater
+        (new Runnable() 
+        {
+            public void run()
+            {
                 new Select_Operations().setVisible(true);
             }
-        });
+        }
+        );
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back_button;
+    private javax.swing.JButton btnAddEmployee;
     private javax.swing.JButton btnBilling;
     private javax.swing.JButton btnFeedback;
     private javax.swing.JButton btnMenu;

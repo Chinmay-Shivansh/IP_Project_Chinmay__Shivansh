@@ -22,7 +22,8 @@ public class Login extends javax.swing.JFrame
             p = MySQL_Password;
         }
     /** Creates new form Login */
-    public Login() {
+    public Login() 
+    {
         initComponents();
     }
 
@@ -47,6 +48,8 @@ public class Login extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtuname.setFont(new java.awt.Font("Google Sans", 0, 12)); // NOI18N
         getContentPane().add(txtuname, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 110, -1));
 
         btnLogin.setFont(new java.awt.Font("Google Sans", 1, 16)); // NOI18N
@@ -62,6 +65,8 @@ public class Login extends javax.swing.JFrame
             }
         });
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 90, -1));
+
+        pwd_field.setFont(new java.awt.Font("Google Sans", 0, 12)); // NOI18N
         getContentPane().add(pwd_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, 110, -1));
 
         jLabel3.setFont(new java.awt.Font("Google Sans", 1, 12)); // NOI18N
@@ -110,10 +115,8 @@ public class Login extends javax.swing.JFrame
                   if ((Username.equals(un)) && (Password.equals(pwd)))
                   {
                       exist = true;
-                  }
-                  
-              } 
-              
+                  }                  
+              }               
           }
           
           if(!exist)
@@ -139,7 +142,8 @@ public class Login extends javax.swing.JFrame
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) 
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -164,11 +168,14 @@ public class Login extends javax.swing.JFrame
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable() 
+        {
+            public void run() 
+            {
                 new Login().setVisible(true);
             }
-        });
+        }
+        );
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

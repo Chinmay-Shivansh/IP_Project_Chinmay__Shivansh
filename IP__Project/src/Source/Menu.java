@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.sql.*;
-import javax.swing.JTable;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.table.*;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -31,7 +31,8 @@ public class Menu extends javax.swing.JFrame
     /**
      * Creates new form Menu
      */
-    public Menu() {
+    public Menu() 
+    {
         initComponents();
     }
 
@@ -117,8 +118,14 @@ public class Menu extends javax.swing.JFrame
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Price");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 326, -1, -1));
+
+        txtSerialInsert.setFont(new java.awt.Font("Google Sans", 0, 11)); // NOI18N
         getContentPane().add(txtSerialInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 351, 67, -1));
+
+        txtItem.setFont(new java.awt.Font("Google Sans", 0, 11)); // NOI18N
         getContentPane().add(txtItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 353, 130, -1));
+
+        txtSerialSearch.setFont(new java.awt.Font("Google Sans", 0, 11)); // NOI18N
         getContentPane().add(txtSerialSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 462, 50, -1));
 
         jLabel5.setFont(new java.awt.Font("Google Sans", 0, 12)); // NOI18N
@@ -126,6 +133,7 @@ public class Menu extends javax.swing.JFrame
         jLabel5.setText("Enter serial no.");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 464, 94, 20));
 
+        txtPrice.setFont(new java.awt.Font("Google Sans", 0, 11)); // NOI18N
         txtPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPriceActionPerformed(evt);
@@ -328,7 +336,14 @@ public class Menu extends javax.swing.JFrame
                 int s = rs.getInt("Serial_No");
                 int p = rs.getInt("Price");
                 Object [] Row = {s,i,p};
-                mytable.addRow(Row);
+                SwingUtilities.invokeLater(new Runnable()
+                {
+                    public void run()
+                    {
+                        mytable.addRow(Row);
+                    }
+                }
+                );
             }
             con.close();
             stmt.close();
@@ -348,6 +363,7 @@ public class Menu extends javax.swing.JFrame
         {
             tbl.getColumnModel().getColumn(columnIndex).setCellRenderer(centreRenderer);
         }
+        tbl.setModel(null);
     }//GEN-LAST:event_formWindowActivated
 
     private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
@@ -361,7 +377,8 @@ public class Menu extends javax.swing.JFrame
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) 
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -387,11 +404,14 @@ public class Menu extends javax.swing.JFrame
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable() 
+        {
+            public void run()
+            {
                 new Menu().setVisible(true);
             }
-        });
+        }
+        );
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

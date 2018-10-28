@@ -31,7 +31,8 @@ public class Billing extends javax.swing.JFrame
     /**
      * Creates new form Billing
      */
-    public Billing() {
+    public Billing() 
+    {
         initComponents();
     }
 
@@ -65,11 +66,11 @@ public class Billing extends javax.swing.JFrame
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -100,6 +101,8 @@ public class Billing extends javax.swing.JFrame
         jLabel2.setForeground(java.awt.Color.darkGray);
         jLabel2.setText("Quantity");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 60, 20));
+
+        txtQty.setFont(new java.awt.Font("Google Sans", 0, 11)); // NOI18N
         getContentPane().add(txtQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 70, 20));
 
         btnAdd.setBackground(new java.awt.Color(255, 255, 255));
@@ -346,7 +349,8 @@ public class Billing extends javax.swing.JFrame
      * @param args the command line arguments
      */
 
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -371,11 +375,14 @@ public class Billing extends javax.swing.JFrame
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable() 
+        {
+            public void run() 
+            {
                 new Billing().setVisible(true);
             }
-        });
+        }
+        );
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

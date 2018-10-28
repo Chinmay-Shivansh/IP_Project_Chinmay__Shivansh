@@ -6,14 +6,32 @@
 
 package Source;
 
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /**
  *
  * @author Chinmay Dalal
  */
-public class Add_employee extends javax.swing.JFrame {
-
+public class Add_or_remove_employee extends javax.swing.JFrame 
+{
+    String u,p;
+        public void setCredentials(String MySQL_Username, String MySQL_Password) 
+        {
+            u = MySQL_Username;
+            p = MySQL_Password;
+        }
     /** Creates new form Add_user */
-    public Add_employee() {
+    public Add_or_remove_employee() 
+    {
         initComponents();
     }
 
@@ -40,15 +58,21 @@ public class Add_employee extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtEID = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtEPwd = new javax.swing.JTextField();
+        pwdEPwd = new javax.swing.JPasswordField();
         btnEnter = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbl = new javax.swing.JTable();
-        btnView = new javax.swing.JButton();
+        btnRemove = new javax.swing.JButton();
+        btnView1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -67,6 +91,12 @@ public class Add_employee extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Google Sans Medium", 0, 12)); // NOI18N
         jLabel6.setText("Qualifications");
 
+        txtName.setFont(new java.awt.Font("Google Sans", 0, 11)); // NOI18N
+
+        txtDOB.setFont(new java.awt.Font("Google Sans", 0, 11)); // NOI18N
+
+        txtSex.setFont(new java.awt.Font("Google Sans", 0, 11)); // NOI18N
+
         txtQual.setColumns(20);
         txtQual.setFont(new java.awt.Font("Google Sans", 0, 12)); // NOI18N
         txtQual.setRows(5);
@@ -79,20 +109,15 @@ public class Add_employee extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
-                        .addGap(67, 67, 67)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 75, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtSex, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87)))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5))
+                .addGap(67, 67, 67)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSex, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 75, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -119,7 +144,7 @@ public class Add_employee extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 460, 200));
@@ -131,8 +156,12 @@ public class Add_employee extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Google Sans Medium", 0, 12)); // NOI18N
         jLabel8.setText("Employee ID");
 
+        txtEID.setFont(new java.awt.Font("Google Sans", 0, 11)); // NOI18N
+
         jLabel9.setFont(new java.awt.Font("Google Sans Medium", 0, 12)); // NOI18N
         jLabel9.setText("Password");
+
+        pwdEPwd.setFont(new java.awt.Font("Google Sans", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -144,9 +173,9 @@ public class Add_employee extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(65, 65, 65)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEID, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtEID, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                    .addComponent(pwdEPwd))
                 .addContainerGap(217, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -158,9 +187,9 @@ public class Add_employee extends javax.swing.JFrame {
                     .addComponent(txtEID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addComponent(jLabel9)
+                    .addComponent(pwdEPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 283, 460, 150));
@@ -170,6 +199,11 @@ public class Add_employee extends javax.swing.JFrame {
         btnEnter.setText("Enter");
         btnEnter.setBorderPainted(false);
         btnEnter.setContentAreaFilled(false);
+        btnEnter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnterActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 440, -1, -1));
 
         tbl.setBorder(null);
@@ -184,17 +218,37 @@ public class Add_employee extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tbl);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 350, 220));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 350, 220));
 
-        btnView.setBackground(new java.awt.Color(0, 0, 0));
-        btnView.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
-        btnView.setForeground(new java.awt.Color(255, 255, 255));
-        btnView.setText("View employees");
-        btnView.setBorder(null);
-        btnView.setBorderPainted(false);
-        btnView.setContentAreaFilled(false);
-        btnView.setOpaque(true);
-        getContentPane().add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, -1));
+        btnRemove.setBackground(new java.awt.Color(0, 0, 0));
+        btnRemove.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
+        btnRemove.setForeground(new java.awt.Color(255, 255, 255));
+        btnRemove.setText("Remove employee");
+        btnRemove.setBorder(null);
+        btnRemove.setBorderPainted(false);
+        btnRemove.setContentAreaFilled(false);
+        btnRemove.setOpaque(true);
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 160, -1));
+
+        btnView1.setBackground(new java.awt.Color(0, 0, 0));
+        btnView1.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
+        btnView1.setForeground(new java.awt.Color(255, 255, 255));
+        btnView1.setText("View employees");
+        btnView1.setBorder(null);
+        btnView1.setBorderPainted(false);
+        btnView1.setContentAreaFilled(false);
+        btnView1.setOpaque(true);
+        btnView1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnView1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnView1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 160, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Add employee.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 428, 485));
@@ -205,10 +259,75 @@ public class Add_employee extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
+        // TODO add your handling code here:
+        if(txtEID.getText().isEmpty()||new String(pwdEPwd.getPassword()).isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Username or password cannot be empty");
+        }
+        else
+        {
+            try
+            {
+            Class.forName("java.sql.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_DB", u, p);
+                    Statement stmt = con.createStatement();
+                    stmt.executeUpdate("Insert into Employees values("+txtEID.getText()+", "+txtName.getText()+", "+new String(pwdEPwd.getPassword())+", "+txtDOB.getText()+", "+txtSex.getText()+", "+txtQual.getText()+");");
+                    JOptionPane.showMessageDialog(null, "Bill saved");
+                    stmt.close();
+                    con.close();
+            } 
+            catch (HeadlessException | ClassNotFoundException | SQLException e)
+            {
+                   JOptionPane.showMessageDialog(null, e);
+            }
+        }        
+    }//GEN-LAST:event_btnEnterActionPerformed
+
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel mytable = (DefaultTableModel)tbl.getModel();
+        int DialogueResult = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove the selected employee?");
+        if(DialogueResult == JOptionPane.YES_OPTION)
+        {
+            int x = tbl.getSelectedRow();
+            String eid = mytable.getValueAt(x, 0).toString();
+             try
+            {
+            Class.forName("java.sql.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_DB", u, p);
+            Statement stmt = con.createStatement();
+            String update = "delete from bills where Employee_ID="+eid+"";
+            stmt.executeUpdate(update);
+            }
+            catch(ClassNotFoundException | SQLException e)
+            {
+                 JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }//GEN-LAST:event_btnRemoveActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        DefaultTableCellRenderer centreRenderer = new DefaultTableCellRenderer();
+        centreRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        TableModel tableModel = tbl.getModel();
+        for (int columnIndex = 0; columnIndex < tableModel.getColumnCount(); columnIndex++)
+        {
+            tbl.getColumnModel().getColumn(columnIndex).setCellRenderer(centreRenderer);
+        }
+        tbl.setModel(null);
+    }//GEN-LAST:event_formWindowActivated
+
+    private void btnView1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnView1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnView1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) 
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -222,28 +341,34 @@ public class Add_employee extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Add_employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_or_remove_employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Add_employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_or_remove_employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Add_employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_or_remove_employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Add_employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_or_remove_employee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Add_employee().setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() 
+        {
+            public void run() 
+            {
+                new Add_or_remove_employee().setVisible(true);
             }
-        });
+        }
+        );
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnter;
-    private javax.swing.JButton btnView;
+    private javax.swing.JButton btnRemove;
+    private javax.swing.JButton btnView1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -256,10 +381,10 @@ public class Add_employee extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPasswordField pwdEPwd;
     private javax.swing.JTable tbl;
     private javax.swing.JTextField txtDOB;
     private javax.swing.JTextField txtEID;
-    private javax.swing.JTextField txtEPwd;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextArea txtQual;
     private javax.swing.JTextField txtSex;

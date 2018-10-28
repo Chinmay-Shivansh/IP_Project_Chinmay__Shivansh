@@ -29,7 +29,8 @@ public class View_Bills extends javax.swing.JFrame
         }
 
     /** Creates new form View_Bills */
-    public View_Bills() {
+    public View_Bills() 
+    {
         initComponents();
     }
 
@@ -58,6 +59,7 @@ public class View_Bills extends javax.swing.JFrame
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tbl.setFont(new java.awt.Font("Google Sans", 0, 12)); // NOI18N
         tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -149,9 +151,14 @@ public class View_Bills extends javax.swing.JFrame
                 String tot = rs.getString("Amount");
                 String timestamp = rs.getString("Time");
                 Object [] Row = {n,tot, timestamp};
-                SwingUtilities.invokeLater(new Runnable(){public void run(){
+                SwingUtilities.invokeLater(new Runnable()
+                {
+                    public void run()
+                    {
                         mytable.addRow(Row);
-                }});
+                    }
+                }
+                );
             }
             con.close();
             stmt.close();
@@ -171,6 +178,7 @@ public class View_Bills extends javax.swing.JFrame
         {
             tbl.getColumnModel().getColumn(columnIndex).setCellRenderer(centreRenderer);
         }
+        tbl.setModel(null);
     }//GEN-LAST:event_formWindowActivated
 
     private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
@@ -207,7 +215,8 @@ public class View_Bills extends javax.swing.JFrame
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) 
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -232,11 +241,14 @@ public class View_Bills extends javax.swing.JFrame
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable() 
+        {
+            public void run() 
+            {
                 new View_Bills().setVisible(true);
             }
-        });
+        }
+        );
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
