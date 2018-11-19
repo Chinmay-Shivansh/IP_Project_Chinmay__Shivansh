@@ -9,10 +9,12 @@ package Source;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -63,7 +65,7 @@ public class Add_or_remove_employee extends javax.swing.JFrame
         jScrollPane2 = new javax.swing.JScrollPane();
         tbl = new javax.swing.JTable();
         btnRemove = new javax.swing.JButton();
-        btnView1 = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -204,7 +206,7 @@ public class Add_or_remove_employee extends javax.swing.JFrame
                 btnEnterActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 440, -1, -1));
+        getContentPane().add(btnEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 440, -1, -1));
 
         tbl.setBorder(null);
         tbl.setFont(new java.awt.Font("Google Sans", 0, 12)); // NOI18N
@@ -235,20 +237,20 @@ public class Add_or_remove_employee extends javax.swing.JFrame
         });
         getContentPane().add(btnRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 160, -1));
 
-        btnView1.setBackground(new java.awt.Color(0, 0, 0));
-        btnView1.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
-        btnView1.setForeground(new java.awt.Color(255, 255, 255));
-        btnView1.setText("View employees");
-        btnView1.setBorder(null);
-        btnView1.setBorderPainted(false);
-        btnView1.setContentAreaFilled(false);
-        btnView1.setOpaque(true);
-        btnView1.addActionListener(new java.awt.event.ActionListener() {
+        btnView.setBackground(new java.awt.Color(0, 0, 0));
+        btnView.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
+        btnView.setForeground(new java.awt.Color(255, 255, 255));
+        btnView.setText("View employees");
+        btnView.setBorder(null);
+        btnView.setBorderPainted(false);
+        btnView.setContentAreaFilled(false);
+        btnView.setOpaque(true);
+        btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnView1ActionPerformed(evt);
+                btnViewActionPerformed(evt);
             }
         });
-        getContentPane().add(btnView1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 160, -1));
+        getContentPane().add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 160, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Add employee.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 428, 485));
@@ -272,8 +274,8 @@ public class Add_or_remove_employee extends javax.swing.JFrame
             Class.forName("java.sql.Driver");
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_DB", u, p);
                     Statement stmt = con.createStatement();
-                    stmt.executeUpdate("Insert into Employees values("+txtEID.getText()+", "+txtName.getText()+", "+new String(pwdEPwd.getPassword())+", "+txtDOB.getText()+", "+txtSex.getText()+", "+txtQual.getText()+");");
-                    JOptionPane.showMessageDialog(null, "Bill saved");
+                    stmt.executeUpdate("Insert into Employees values('"+txtEID.getText()+"', '"+txtName.getText()+"', '"+new String(pwdEPwd.getPassword())+"', '"+txtDOB.getText()+"', '"+txtSex.getText()+"', '"+txtQual.getText()+"');");
+                    JOptionPane.showMessageDialog(null, "Record saved");
                     stmt.close();
                     con.close();
             } 
@@ -297,7 +299,7 @@ public class Add_or_remove_employee extends javax.swing.JFrame
             Class.forName("java.sql.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_DB", u, p);
             Statement stmt = con.createStatement();
-            String update = "delete from bills where Employee_ID="+eid+"";
+            String update = "delete from employees where Employee_ID='"+eid+"';";
             stmt.executeUpdate(update);
             }
             catch(ClassNotFoundException | SQLException e)
@@ -316,12 +318,43 @@ public class Add_or_remove_employee extends javax.swing.JFrame
         {
             tbl.getColumnModel().getColumn(columnIndex).setCellRenderer(centreRenderer);
         }
-        tbl.setModel(null);
     }//GEN-LAST:event_formWindowActivated
 
-    private void btnView1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnView1ActionPerformed
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnView1ActionPerformed
+        DefaultTableModel mytable = (DefaultTableModel)tbl.getModel();
+        mytable.setRowCount(0);
+         try
+        {
+            Class.forName("java.sql.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Restaurant_DB", u, p);
+            Statement stmt = con.createStatement();
+            String str="select Employee_ID, Name, DOB, Sex from Employees;";
+            ResultSet rs=stmt.executeQuery(str);
+            while(rs.next())
+            {
+                String eidd = rs.getString("Employee_ID");
+                String name = rs.getString("Name");
+                String dob = rs.getString("DOB");
+                String sex = rs.getString("Sex");
+                Object [] Row = {eidd, name, dob, sex};
+                SwingUtilities.invokeLater(new Runnable()
+                {
+                    public void run()
+                    {
+                        mytable.addRow(Row);
+                    }
+                }
+                );
+            }
+            con.close();
+            stmt.close();
+        }
+        catch(ClassNotFoundException | NumberFormatException | SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }        
+    }//GEN-LAST:event_btnViewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -368,7 +401,7 @@ public class Add_or_remove_employee extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnter;
     private javax.swing.JButton btnRemove;
-    private javax.swing.JButton btnView1;
+    private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
