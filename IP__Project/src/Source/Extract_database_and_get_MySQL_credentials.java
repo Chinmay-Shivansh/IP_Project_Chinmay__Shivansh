@@ -7,6 +7,7 @@
 package Source;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
@@ -17,6 +18,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -132,15 +137,56 @@ public class Extract_database_and_get_MySQL_credentials extends javax.swing.JFra
         String m_password= new String(MySQL_pwdfield.getPassword());
         if(m_uname.isEmpty()||m_password.isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Please enter your MySQL username and password");
+            JOptionPane.showMessageDialog(null, "MySQL username and password will be read from text file");         
         }
         else
         {
+            try
+            {
+            FileWriter writer_u = new FileWriter("MySQL_username.txt", true);
+            writer_u.write(m_uname);
+            writer_u.close();
+            
+            FileWriter writer_p = new FileWriter("MySQL_password.txt", true);
+            writer_p.write(m_uname);
+            writer_p.close();
+            } 
+            catch (IOException e)
+            {
+            e.printStackTrace();
+            }
+        } 
+        try
+        {
+            FileReader reader_u = new FileReader("MySQL_password.txt");
+            int character_u;
+            ArrayList use = null;
+            while ((character_u = reader_u.read()) != -1)
+            {
+                use.add(character_u);
+            }
+            reader_u.close();           
+            
+            
+            FileReader reader_p = new FileReader("MySQL_password.txt");
+            int character_p;
+            ArrayList par = null;
+            while ((character_p = reader_p.read()) != -1)
+            {
+                par.add(character_p);
+            }
+            reader_p.close();
+        } 
+        catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
+        
+                       
             Login login = new Login();
             login.setCredentials(m_uname, m_password);
             login.setVisible(true);
             this.dispose();
-        }        
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnExtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExtractActionPerformed
