@@ -133,25 +133,24 @@ public class Extract_database_and_get_MySQL_credentials extends javax.swing.JFra
         {
             JOptionPane.showMessageDialog(null, "MySQL username and password will be read from text file");         
         }
-                        else
-                        {
-                            try
-                            {
-                            FileWriter writer_u = new FileWriter("MySQL_username.txt", true); //Write username to file
-                            writer_u.write(txtMySQL_uname.getText());
-                            writer_u.close();
+       else
+       {
+          try
+          {
+            FileWriter writer_u = new FileWriter("MySQL_username.txt", false); /*Write username to file,
+            'false' argument is used to overwrite instead of append*/
+            writer_u.write(txtMySQL_uname.getText());
+            writer_u.close();
 
-                            FileWriter writer_p = new FileWriter("MySQL_password.txt", true); //Write password to file
-                            writer_p.write(new String(MySQL_pwdfield.getPassword()));
-                            writer_p.close();
-                            } 
-                            catch (IOException e)
-                            {
-                            JOptionPane.showMessageDialog(null, e);
-                            }
-                        }
-        
-        
+            FileWriter writer_p = new FileWriter("MySQL_password.txt", false); //Write password to file
+            writer_p.write(new String(MySQL_pwdfield.getPassword()));
+            writer_p.close();
+          } 
+          catch (IOException e)
+                {
+                  JOptionPane.showMessageDialog(null, e);
+                }
+      }      
         
         try
         {
