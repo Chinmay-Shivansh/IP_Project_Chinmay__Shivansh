@@ -7,21 +7,15 @@
 package Source;
 
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  *
@@ -133,58 +127,50 @@ public class Extract_database_and_get_MySQL_credentials extends javax.swing.JFra
     }    
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
-        String m_uname = txtMySQL_uname.getText();
-        String m_password= new String(MySQL_pwdfield.getPassword());
-        if(m_uname.isEmpty()||m_password.isEmpty())
+        StringBuffer pas = new StringBuffer();
+        StringBuffer use = new StringBuffer();
+        if(txtMySQL_uname.getText().isEmpty()||new String(MySQL_pwdfield.getPassword()).isEmpty())
         {
             JOptionPane.showMessageDialog(null, "MySQL username and password will be read from text file");         
         }
-        else
-        {
-            try
-            {
-            FileWriter writer_u = new FileWriter("MySQL_username.txt", true);
-            writer_u.write(m_uname);
-            writer_u.close();
-            
-            FileWriter writer_p = new FileWriter("MySQL_password.txt", true);
-            writer_p.write(m_uname);
-            writer_p.close();
-            } 
-            catch (IOException e)
-            {
-            e.printStackTrace();
-            }
-        } 
+                        else
+                        {
+                            try
+                            {
+                            FileWriter writer_u = new FileWriter("MySQL_username.txt", true); //Write username to file
+                            writer_u.write(txtMySQL_uname.getText());
+                            writer_u.close();
+
+                            FileWriter writer_p = new FileWriter("MySQL_password.txt", true); //Write password to file
+                            writer_p.write(new String(MySQL_pwdfield.getPassword()));
+                            writer_p.close();
+                            } 
+                            catch (IOException e)
+                            {
+                            JOptionPane.showMessageDialog(null, e);
+                            }
+                        }
+        
+        
+        
         try
         {
-            FileReader reader_u = new FileReader("MySQL_password.txt");
-            int character_u;
-            ArrayList use = null;
-            while ((character_u = reader_u.read()) != -1)
-            {
-                use.add(character_u);
-            }
-            reader_u.close();           
-            
-            
-            FileReader reader_p = new FileReader("MySQL_password.txt");
-            int character_p;
-            ArrayList par = null;
-            while ((character_p = reader_p.read()) != -1)
-            {
-                par.add(character_p);
-            }
-            reader_p.close();
+            use.append(Files.readAllLines(Paths.get("MySQL_username.txt")));//Read username from file            
+            pas.append(Files.readAllLines(Paths.get("MySQL_password.txt"))); //Read password from file
         } 
+        
         catch (IOException e) 
         {
-            e.printStackTrace();
-        }
-        
-                       
+           JOptionPane.showMessageDialog(null, e);
+        }       
+            String MySQL_u = new String(use);
+            MySQL_u = MySQL_u.replace("[","");
+            MySQL_u = MySQL_u.replace("]","");
+            String MySQL_p = new String(pas);
+            MySQL_p = MySQL_p.replace("[", "");
+            MySQL_p = MySQL_p.replace("]", "");
             Login login = new Login();
-            login.setCredentials(m_uname, m_password);
+            login.setCredentials(MySQL_u, MySQL_p);
             login.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_btnNextActionPerformed
@@ -206,7 +192,7 @@ public class Extract_database_and_get_MySQL_credentials extends javax.swing.JFra
         } 
         catch (URISyntaxException ex)
         {
-            Logger.getLogger(Extract_database_and_get_MySQL_credentials.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     Extract(s, d, lblProgress);
     }//GEN-LAST:event_btnExtractActionPerformed
