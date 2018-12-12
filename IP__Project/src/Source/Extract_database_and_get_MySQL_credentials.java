@@ -137,7 +137,8 @@ public class Extract_database_and_get_MySQL_credentials extends javax.swing.JFra
        {
           try
           {
-            FileWriter writer_u = new FileWriter("MySQL_username.txt", false); /*Write username to file,
+            FileWriter writer_u = new FileWriter("MySQL_username.txt", false); 
+            /*Write username to file,
             'false' argument is used to overwrite instead of append*/
             writer_u.write(txtMySQL_uname.getText());
             writer_u.close();
