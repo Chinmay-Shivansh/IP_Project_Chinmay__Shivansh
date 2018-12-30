@@ -60,7 +60,6 @@ public class Menu extends javax.swing.JFrame
         btnInsert = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btn_ShowMenu = new javax.swing.JButton();
-        Back_button = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -206,22 +205,9 @@ public class Menu extends javax.swing.JFrame
         });
         getContentPane().add(btn_ShowMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, -1, -1));
 
-        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Back_black.png"))); // NOI18N
-        Back_button.setBorder(null);
-        Back_button.setBorderPainted(false);
-        Back_button.setContentAreaFilled(false);
-        Back_button.setMaximumSize(new java.awt.Dimension(32, 32));
-        Back_button.setMinimumSize(new java.awt.Dimension(32, 32));
-        Back_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Back_buttonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, 30));
-
         jLabel1.setFont(new java.awt.Font("Google Sans Medium", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/Menu_background.jpg")));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Menu_background.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 234, 539));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("Resources/Menu_colour.png")));
@@ -363,16 +349,7 @@ public class Menu extends javax.swing.JFrame
         {
             tbl.getColumnModel().getColumn(columnIndex).setCellRenderer(centreRenderer);
         }
-        tbl.setModel(null);
     }//GEN-LAST:event_formWindowActivated
-
-    private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
-        // TODO add your handling code here:
-        Select_Operations so = new Select_Operations();
-        so.setCredentials(u, p);
-        so.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Back_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -415,7 +392,6 @@ public class Menu extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Back_button;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnInsert;
     private javax.swing.JButton btnSearch;

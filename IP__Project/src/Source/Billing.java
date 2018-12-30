@@ -57,7 +57,6 @@ public class Billing extends javax.swing.JFrame
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
-        Back_button = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         cmbItem = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
@@ -172,17 +171,6 @@ public class Billing extends javax.swing.JFrame
         jLabel6.setText("Item");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 50, -1));
         getContentPane().add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 50, 20));
-
-        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Back_black.png"))); // NOI18N
-        Back_button.setBorder(null);
-        Back_button.setBorderPainted(false);
-        Back_button.setContentAreaFilled(false);
-        Back_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Back_buttonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 60, 40));
 
         jLabel7.setFont(new java.awt.Font("Google Sans Medium", 0, 14)); // NOI18N
         jLabel7.setForeground(java.awt.Color.darkGray);
@@ -329,14 +317,6 @@ public class Billing extends javax.swing.JFrame
                }
     }//GEN-LAST:event_btnBillActionPerformed
 
-    private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
-        // TODO add your handling code here:
-        Select_Operations so = new Select_Operations();
-        so.setCredentials(u, p);
-        so.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Back_buttonActionPerformed
-
     private void cmbItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbItemActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbItemActionPerformed
@@ -386,7 +366,6 @@ public class Billing extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Back_button;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBill;
     private javax.swing.JButton btnClear;

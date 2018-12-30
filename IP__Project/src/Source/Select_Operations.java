@@ -123,7 +123,6 @@ public class Select_Operations extends javax.swing.JFrame
         Menu menu = new Menu();
         menu.setCredentials(u, p);
         menu.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void btnBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBillingActionPerformed
@@ -131,7 +130,6 @@ public class Select_Operations extends javax.swing.JFrame
         Billing billing = new Billing();
         billing.setCredentials(u, p);
         billing.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btnBillingActionPerformed
 
     private void btnFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFeedbackActionPerformed
@@ -139,7 +137,6 @@ public class Select_Operations extends javax.swing.JFrame
         Feedback feedback = new Feedback();
         feedback.setCredentials(u, p);
         feedback.setVisible(true);
-        this.dispose();        
     }//GEN-LAST:event_btnFeedbackActionPerformed
 
     private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
@@ -147,7 +144,6 @@ public class Select_Operations extends javax.swing.JFrame
         Login login = new Login();
         login.setCredentials(u, p);
         login.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_Back_buttonActionPerformed
 
     private void btnViewBillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewBillsActionPerformed
@@ -155,7 +151,6 @@ public class Select_Operations extends javax.swing.JFrame
         View_Bills viewbills = new View_Bills();
         viewbills.setCredentials(u, p);
         viewbills.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btnViewBillsActionPerformed
 
     /**

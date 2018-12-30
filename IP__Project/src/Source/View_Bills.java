@@ -46,7 +46,6 @@ public class View_Bills extends javax.swing.JFrame
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl = new javax.swing.JTable();
         btn_ViewBills = new javax.swing.JButton();
-        Back_button = new javax.swing.JButton();
         btn_DeleteBills = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -100,17 +99,6 @@ public class View_Bills extends javax.swing.JFrame
             }
         });
         getContentPane().add(btn_ViewBills, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, -1, -1));
-
-        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Back_black.png"))); // NOI18N
-        Back_button.setBorder(null);
-        Back_button.setBorderPainted(false);
-        Back_button.setContentAreaFilled(false);
-        Back_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Back_buttonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
 
         btn_DeleteBills.setFont(new java.awt.Font("Google Sans Medium", 0, 16)); // NOI18N
         btn_DeleteBills.setForeground(java.awt.Color.darkGray);
@@ -181,14 +169,6 @@ public class View_Bills extends javax.swing.JFrame
         tbl.setModel(null);
     }//GEN-LAST:event_formWindowActivated
 
-    private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
-        // TODO add your handling code here:
-        Select_Operations so = new Select_Operations();
-        so.setCredentials(u, p);
-        so.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Back_buttonActionPerformed
-
     private void btn_DeleteBillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DeleteBillsActionPerformed
         // TODO add your handling code here:
         DefaultTableModel mytable = (DefaultTableModel)tbl.getModel();
@@ -252,7 +232,6 @@ public class View_Bills extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Back_button;
     private javax.swing.JButton btn_DeleteBills;
     private javax.swing.JButton btn_ViewBills;
     private javax.swing.JLabel jLabel1;

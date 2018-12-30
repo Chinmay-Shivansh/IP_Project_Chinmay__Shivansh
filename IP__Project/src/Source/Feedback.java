@@ -42,7 +42,6 @@ public class Feedback extends javax.swing.JFrame
         ta = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         btnSubmit = new javax.swing.JButton();
-        Back_button = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,17 +73,6 @@ public class Feedback extends javax.swing.JFrame
             }
         });
         getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, -1));
-
-        Back_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Back_white.png"))); // NOI18N
-        Back_button.setBorder(null);
-        Back_button.setBorderPainted(false);
-        Back_button.setContentAreaFilled(false);
-        Back_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Back_buttonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 30));
 
         jLabel1.setFont(new java.awt.Font("Google Sans Medium", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -118,14 +106,6 @@ public class Feedback extends javax.swing.JFrame
                 JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
-
-    private void Back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_buttonActionPerformed
-        // TODO add your handling code here:
-        Select_Operations so = new Select_Operations();
-        so.setCredentials(u, p);
-        so.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_Back_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,7 +147,6 @@ public class Feedback extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Back_button;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
