@@ -4,14 +4,9 @@
  * and open the template in the editor.
  */
 package Source;
-/**
- *
- * @author Chinmay Dalal
- */
-public class IP__Project
-{    
-    public static void main(String[] args)
-    {    
-        new Intro().setVisible(true);
-    }        
+/** @author Chinmay Dalal */
+public class IP__Project {
+  public static void main(String[] args) {
+    new Intro().setVisible(true);
+  }
 }
